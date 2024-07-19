@@ -1,1 +1,0 @@
-/mnt/windows/Users/thego/OneDrive/Документы/_Developments/github.com/4ry1337/leetcode/rust/target/debug/rust: /mnt/windows/Users/thego/OneDrive/Документы/_Developments/github.com/4ry1337/leetcode/rust/src/l1768.rs /mnt/windows/Users/thego/OneDrive/Документы/_Developments/github.com/4ry1337/leetcode/rust/src/main.rs
