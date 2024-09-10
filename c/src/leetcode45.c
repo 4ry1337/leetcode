@@ -1,6 +1,4 @@
 #include <limits.h>
-#include <stdio.h>
-#include <stdlib.h>
 
 /*int jump(int *nums, int numsSize) {*/
 /*  int *jumps = (int *)malloc(sizeof(int) * numsSize);*/
@@ -22,7 +20,7 @@
 /*  return jumps[numsSize - 1];*/
 /*}*/
 
-int Max(int x, int y) {
+int Max45(int x, int y) {
   if (x < y) {
     return y;
   } else {
@@ -33,7 +31,7 @@ int Max(int x, int y) {
 int jump(int *nums, int numsSize) {
   int timesOfJump = 0, lastJumpIndex = 0, curFar = 0;
   for (int i = 0; i < numsSize - 1; i++) {
-    curFar = Max(curFar, i + nums[i]);
+    curFar = Max45(curFar, i + nums[i]);
     if (i == lastJumpIndex) {
       lastJumpIndex = curFar;
       timesOfJump++;
@@ -42,13 +40,6 @@ int jump(int *nums, int numsSize) {
       }
     }
   }
-  return 0;
-}
-
-int main(int argc, char *argv[]) {
-  int nums[5] = {2, 3, 1, 1, 4};
-  int res = jump(nums, 5);
-  printf("%d\n", res);
   return 0;
 }
 
