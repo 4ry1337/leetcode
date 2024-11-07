@@ -45,17 +45,3 @@ long long countGoodIntegers(int n, int k) {
   }
   return result;
 }
-
-int main(int argc, char *argv[]) {
-  std::cout << countGoodIntegers(5, 6);
-  return 0;
-}
-
-/*
-515 525 535 545 555 565 575 585 595 505
-24 + 2  +1
-*/
-
-/*
-4 8
-*/
