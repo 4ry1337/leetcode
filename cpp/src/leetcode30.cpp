@@ -42,13 +42,3 @@ public:
     return res;
   }
 };
-
-int main(int argc, char *argv[]) {
-  Solution s;
-  vector<string> words{"boo", "foo"};
-  vector<int> res = s.findSubstring("foobarthefoobar", words);
-  for (int x : res) {
-    cout << x << endl;
-  }
-  return 0;
-}
