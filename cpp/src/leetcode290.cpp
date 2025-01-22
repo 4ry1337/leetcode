@@ -50,8 +50,8 @@ public:
   }
 };
 
-int main(int argc, char *argv[]) {
-  Solution s;
-  cout << s.wordPattern("abba", "dog cat cat fish");
-  return 0;
-}
+/*int main(int argc, char *argv[]) {*/
+/*  Solution s;*/
+/*  cout << s.wordPattern("abba", "dog cat cat fish");*/
+/*  return 0;*/
+/*}*/
