@@ -49,9 +49,11 @@ public:
   }
 };
 
+/*
 int main(int argc, char *argv[]) {
   vector<int> citations = {1, 3, 1};
   Solution s;
   cout << endl << s.hIndex(citations);
   return 0;
 }
+*/

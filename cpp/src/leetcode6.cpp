@@ -5,22 +5,22 @@ using namespace std;
 class Solution {
 public:
   string convert(string s, int numRows) {
-    if (numRows == 1 || numRows >= s.size()) {
+    if (numRows == 1 || s.size() <= numRows) {
       return s;
     }
-    vector<string> rows(numRows);
-    int curRow = 0;
+    vector<string> ss(numRows);
     bool down = false;
-    for (char c : s) {
-      rows[curRow] += c;
-      if (curRow == 0 || curRow == numRows - 1) {
+    int currRow = 0;
+    for (int i = 0; i < s.size(); i++) {
+      ss[currRow] += s[i];
+      if (currRow + 1 == numRows || currRow == 0) {
         down = !down;
       }
-      curRow += down ? 1 : -1;
+      currRow += (down ? 1 : -1);
     }
     string res = "";
-    for (string v : rows) {
-      res += v;
+    for (string i : ss) {
+      res += i;
     }
     return res;
   }
