@@ -7,54 +7,68 @@ class Solution {
 public:
   vector<string> fullJustify(vector<string> &words, int maxWidth) {
     vector<string> res;
-    vector<string> vec;
-    int spaces = maxWidth;
-
-    for (int i = 0; i < words.size(); i++) {
-      string w = words.at(i);
-      if (spaces >= w.size() + vec.size()) {
-        spaces -= w.size();
-      } else {
-        while (spaces > 0) {
-          for (int j = 0; j < vec.size(); j++) {
-            spaces--;
-            if (spaces < 0) {
-              break;
-            }
-            vec.at(j) += " ";
-          }
-        }
-        string r = "";
-        for (string v : vec) {
-          r += v;
-        }
-        res.push_back(r);
-
-        vec.clear();
-        spaces = maxWidth - w.size();
-      }
-      vec.push_back(w);
-    }
-    for (int j = 0; j < vec.size() - 1; j++) {
-      spaces--;
-      if (spaces < 0) {
-        break;
-      }
-      vec.at(j) += " ";
-    }
-    string r = "";
-    for (string v : vec) {
-      r += v;
-    }
-    vec.clear();
-    res.push_back(r);
-    for (string r : res) {
-      cout << "\"" << r << "\"\t" << r.size() << "\t" << maxWidth - r.size()
-           << endl;
+    int l = 0, currRow = 0, currWord = 0;
+    l += words[currWord].size();
+    if (l < maxWidth) {
+      res[0] += words[currWord] + ' ';
+    } else if (l == maxWidth) {
     }
     return res;
   }
 };
+
+/*class Solution {*/
+/*public:*/
+/*  vector<string> fullJustify(vector<string> &words, int maxWidth) {*/
+/*    vector<string> res;*/
+/*    vector<string> vec;*/
+/*    int spaces = maxWidth;*/
+/**/
+/*    for (int i = 0; i < words.size(); i++) {*/
+/*      string w = words.at(i);*/
+/*      if (spaces >= w.size() + vec.size()) {*/
+/*        spaces -= w.size();*/
+/*      } else {*/
+/*        while (spaces > 0) {*/
+/*          for (int j = 0; j < vec.size(); j++) {*/
+/*            spaces--;*/
+/*            if (spaces < 0) {*/
+/*              break;*/
+/*            }*/
+/*            vec.at(j) += " ";*/
+/*          }*/
+/*        }*/
+/*        string r = "";*/
+/*        for (string v : vec) {*/
+/*          r += v;*/
+/*        }*/
+/*        res.push_back(r);*/
+/**/
+/*        vec.clear();*/
+/*        spaces = maxWidth - w.size();*/
+/*      }*/
+/*      vec.push_back(w);*/
+/*    }*/
+/*    for (int j = 0; j < vec.size() - 1; j++) {*/
+/*      spaces--;*/
+/*      if (spaces < 0) {*/
+/*        break;*/
+/*      }*/
+/*      vec.at(j) += " ";*/
+/*    }*/
+/*    string r = "";*/
+/*    for (string v : vec) {*/
+/*      r += v;*/
+/*    }*/
+/*    vec.clear();*/
+/*    res.push_back(r);*/
+/*    for (string r : res) {*/
+/*      cout << "\"" << r << "\"\t" << r.size() << "\t" << maxWidth - r.size()*/
+/*           << endl;*/
+/*    }*/
+/*    return res;*/
+/*  }*/
+/*};*/
 
 /*
 if (spaces - w.size() < 0) {
