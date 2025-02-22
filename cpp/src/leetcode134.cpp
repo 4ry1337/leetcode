@@ -2,7 +2,7 @@
 
 using namespace std;
 
-class Solution {
+/* class Solution {
 public:
   int canCompleteCircuit(vector<int> &gas, vector<int> &cost) {
     int length = gas.size();
@@ -23,11 +23,11 @@ public:
     }
     return -1;
   }
-};
+}; */
 
 // better
 
-class Solution2 {
+class Solution {
 public:
   int canCompleteCircuit(vector<int> &gas, vector<int> &cost) {
     int length = gas.size();

@@ -1,6 +1,6 @@
 #include <cmath>
-#include <iostream>
-#include <iterator>
+
+using namespace std;
 
 int reverse(int num) {
   int rev = 0;

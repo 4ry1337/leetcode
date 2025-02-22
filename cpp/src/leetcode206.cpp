@@ -5,8 +5,8 @@ struct ListNode {
   ListNode(int x) : val(x), next(nullptr) {}
   ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
-/*
-class Solution {
+
+/* class Solution {
 public:
   ListNode *reverseList(ListNode *head) {
     ListNode *curr = head;
@@ -19,8 +19,8 @@ public:
     }
     return curr;
   }
-};
-*/
+}; */
+
 class Solution {
 public:
   ListNode *reverseList(ListNode *head) {
@@ -43,5 +43,4 @@ public:
 4
 
 4 -> 3 -> 2 -> 1 -> 0
-
 */
