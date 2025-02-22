@@ -12,22 +12,19 @@ public:
     if (!head || left == right)
       return head;
 
-    ListNode *dummy = new ListNode(0), *prev = dummy;
+    ListNode *dummy = new ListNode(0), *begin = dummy;
     dummy->next = head;
+
     for (int i = 0; i < left - 1; i++) {
-      prev = prev->next;
+      begin = begin->next;
     }
-
-    ListNode *curr = prev->next;
-
+    ListNode *curr = begin->next;
     for (int i = 0; i < right - left; i++) {
       ListNode *next = curr->next;
       curr->next = next->next;
-
-      next->next = prev->next;
-      prev->next = next;
+      next->next = begin->next;
+      begin->next = next;
     }
-
     return dummy->next;
   }
 };

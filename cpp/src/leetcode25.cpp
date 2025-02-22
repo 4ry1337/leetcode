@@ -13,26 +13,29 @@ struct ListNode {
 class Solution {
 public:
   ListNode *reverseKGroup(ListNode *head, int k) {
+    ListNode *dummy = new ListNode(-1), *begin = dummy;
+    dummy->next = head;
+    ListNode *curr = dummy->next;
+
     int length = 0;
+
     for (ListNode *temp = head; temp != nullptr; temp = temp->next) {
       length++;
     }
 
-    ListNode *prev = nullptr, *curr = head;
-
     while (length - k >= 0) {
-      for (int i = 0; i < k; i++) {
+      for (int i = 1; i < k; i++) {
         ListNode *next = curr->next;
-        curr->next = prev;
-
-        prev = curr;
-        curr = next;
+        curr->next = next->next;
+        next->next = begin->next;
+        begin->next = next;
       }
-      cout << prev->val << "\n";
-      cout << curr->val << "\n";
+      length -= k;
+      begin = curr;
+      curr = curr->next;
     }
 
-    return head;
+    return dummy->next;
   }
 };
 
