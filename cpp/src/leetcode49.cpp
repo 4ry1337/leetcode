@@ -32,41 +32,45 @@ public:
 };
 */
 // Faster, idk why takes n*n*log(n) worst case
-/* class Solution {
-public:
-  vector<vector<string>> groupAnagrams(vector<string> &strs) {
-    unordered_map<string, vector<string>> mp;
-    for (auto &s : strs) {
-      string temp = s;
-      sort(temp.begin(), temp.end());
-      mp[temp].emplace_back(s);
-    }
-    vector<vector<string>> res;
-    for (auto &[_, val] : mp)
-      res.emplace_back(val);
-    return res;
-  }
-}; */
-
+// reviewed and solved in same way, because sorting takes n*log(n)
+// can be improved by iterating over string and saving into staticly sized
+// vector
 class Solution {
 public:
-  vector<vector<string>> groupAnagrams(vector<string> &strs) {
+  vector<vector<string>> groupAnagrams(vector<string> &s) {
     unordered_map<string, vector<string>> mp;
-    for (const string &str : strs) {
-      vector<int> v(26, 0);
-      for (const unsigned char &c : str) {
-        v[c - 'a']++;
-      }
-      string key = to_string(v[0]);
-      for (int i = 1; i < 26; i++) {
-        key += ',' + to_string(v[i]);
-      }
-      mp[key].push_back(str);
+    for (int i = 0; i < s.size(); i++) {
+      string temp = s[i];
+      sort(temp.begin(), temp.end());
+      mp[temp].push_back(s[i]);
     }
     vector<vector<string>> res;
-    for (const auto &pair : mp) {
-      res.push_back(pair.second);
+    for (const auto &p : mp) {
+      res.push_back(p.second);
     }
     return res;
   }
 };
+
+// class Solution {
+// public:
+//   vector<vector<string>> groupAnagrams(vector<string> &strs) {
+//     unordered_map<string, vector<string>> mp;
+//     for (const string &str : strs) {
+//       vector<int> v(26, 0);
+//       for (const unsigned char &c : str) {
+//         v[c - 'a']++;
+//       }
+//       string key = to_string(v[0]);
+//       for (int i = 1; i < 26; i++) {
+//         key += ',' + to_string(v[i]);
+//       }
+//       mp[key].push_back(str);
+//     }
+//     vector<vector<string>> res;
+//     for (const auto &pair : mp) {
+//       res.push_back(pair.second);
+//     }
+//     return res;
+//   }
+// };

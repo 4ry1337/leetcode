@@ -1,21 +1,15 @@
-#include <algorithm>
-#include <vector>
+#include "bits/stdc++.h"
 
 using namespace std;
 
 class Solution {
 public:
-  int maxProfit(vector<int> &prices) {
-    int maxProfit = 0, maxLocal = 0;
-    for (int i = 0; i < prices.size() - 1; i++) {
-      prices[i] = prices[i + 1] - prices[i];
+  int maxProfit(vector<int> &p) {
+    int res = 0, m = p[0];
+    for (int x : p) {
+      res = max(res, x - m);
+      m = min(m, x);
     }
-    for (int i = 0; i < prices.size() - 1; i++) {
-      maxLocal = max(prices[i], maxLocal + prices[i]);
-      if (maxLocal > maxProfit) {
-        maxProfit = maxLocal;
-      }
-    }
-    return maxProfit;
+    return res;
   }
 };

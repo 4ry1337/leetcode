@@ -1,5 +1,4 @@
 #include <bits/stdc++.h>
-#include <queue>
 
 using namespace std;
 
@@ -25,7 +24,7 @@ public:
   }
 }; */
 
-class Solution {
+/* class Solution {
 public:
   vector<int> topKFrequent(vector<int> &nums, int k) {
     unordered_map<int, int> m;
@@ -41,6 +40,31 @@ public:
       pq.pop();
     }
 
+    return res;
+  }
+}; */
+
+class Solution {
+public:
+  vector<int> topKFrequent(vector<int> &n, int k) {
+    unordered_map<int, int> mp;
+    for (int x : n) {
+      mp[x]++;
+    }
+    vector<vector<int>> buck(n.size() + 1);
+    for (const auto &p : mp) {
+      buck[p.second].push_back(p.first);
+    }
+
+    vector<int> res;
+    for (int i = buck.size() - 1; i > 0; i--) {
+      for (int f : buck[i]) {
+        res.push_back(f);
+        if (res.size() == k) {
+          return res;
+        }
+      }
+    }
     return res;
   }
 };
