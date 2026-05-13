@@ -4,26 +4,26 @@ using namespace std;
 
 // space o(2n)
 // time constant
-class Solution {
-public:
-  int trap(vector<int> &height) {
-    int length = height.size();
-    vector<int> max_left(length);
-    vector<int> max_right(length);
-    int ml = 0, mr = 0;
-    for (int i = 0; i < length; i++) {
-      ml = max(ml, height[i]);
-      mr = max(mr, height[length - 1 - i]);
-      max_left[i] = ml;
-      max_right[length - 1 - i] = mr;
-    }
-    int captured = 0;
-    for (int i = 0; i < length; i++) {
-      captured += min(max_left[i], max_right[i]) - height[i];
-    }
-    return captured;
-  }
-};
+// class Solution {
+// public:
+//   int trap(vector<int> &height) {
+//     int length = height.size();
+//     vector<int> max_left(length);
+//     vector<int> max_right(length);
+//     int ml = 0, mr = 0;
+//     for (int i = 0; i < length; i++) {
+//       ml = max(ml, height[i]);
+//       mr = max(mr, height[length - 1 - i]);
+//       max_left[i] = ml;
+//       max_right[length - 1 - i] = mr;
+//     }
+//     int captured = 0;
+//     for (int i = 0; i < length; i++) {
+//       captured += min(max_left[i], max_right[i]) - height[i];
+//     }
+//     return captured;
+//   }
+// };
 
 /*
 space: O(1)
@@ -55,3 +55,24 @@ public:
   }
 };
 */
+
+class Solution {
+public:
+    int trap(vector<int>& height) {
+    int res = 0;
+    int l = 0, r = height.size() - 1;
+    int lh = height[l], rh = height[r];
+    while (l < r) {
+      if (lh < rh) {
+        l++;
+        lh = max(lh, height[l]);
+        res += lh - height[l];
+      } else {
+        r--;
+        rh = max(rh, height[r]);
+        res += rh - height[r];
+      }
+    }
+    return res;
+    }
+};
