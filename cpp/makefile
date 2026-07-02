@@ -5,6 +5,9 @@ BUILD_DIR := ./build
 SRC_DIR := ./src
 TEST_DIR := ./src
 
+CC := clang
+CXX := clang++
+
 DEBUG_FLAGS := -g3 -O0
 RELEASE_FLAGS := -O3 -DNDEBUG
 
