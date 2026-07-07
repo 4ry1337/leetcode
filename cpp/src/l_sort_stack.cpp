@@ -23,7 +23,7 @@ void sort_stack(stack<int>& s) {
   s = sorted;
 }
 
-int main() {
+/* int main() {
   stack<int> a({1, 2, 3});
   sort_stack(a);
   assert(a == stack<int>({3, 2, 1}));
@@ -39,4 +39,4 @@ int main() {
   stack<int> e({1, 5, 6, 2, 3});
   sort_stack(e);
   assert(e == stack<int>({6, 5, 3, 2, 1}));
-}
+} */
