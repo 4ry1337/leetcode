@@ -1,4 +1,9 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
 /* link: https://leetcode.com/problems/palindrome-linked-list/ */
+
 struct ListNode {
   int val;
   ListNode* next;

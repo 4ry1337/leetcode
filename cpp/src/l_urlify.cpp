@@ -1,7 +1,5 @@
 #include <bits/stdc++.h>
 
-#include <cassert>
-
 using namespace std;
 
 /* URLify: Write a method to replace all spaces in a string with '%20'. You may

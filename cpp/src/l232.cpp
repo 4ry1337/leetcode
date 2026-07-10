@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 
-#include <stack>
+using namespace std;
 
 /* link: https://leetcode.com/problems/implement-queue-using-stacks/
  *
@@ -10,7 +10,6 @@
  * reverse between then only when needed
  * */
 
-using namespace std;
 class MyQueue {
  private:
   stack<int> A, B;

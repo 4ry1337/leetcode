@@ -1,4 +1,9 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
 /* link: https://leetcode.com/problems/middle-of-the-linked-list/ */
+
 struct ListNode {
   int val;
   ListNode* next;

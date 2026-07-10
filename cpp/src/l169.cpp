@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 
 using namespace std;
+
 /* link: https://leetcode.com/problems/majority-element/
  * BCR(O(N))
  *

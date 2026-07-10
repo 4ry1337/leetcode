@@ -1,7 +1,8 @@
-/* link: https://leetcode.com/problems/linked-list-cycle/description/ */
 #include <bits/stdc++.h>
 
-#include <cstddef>
+using namespace std;
+
+/* link: https://leetcode.com/problems/linked-list-cycle/description/ */
 
 struct ListNode {
   int val;

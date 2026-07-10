@@ -1,7 +1,8 @@
-/* link: https://leetcode.com/problems/valid-anagram */
-
 #include <bits/stdc++.h>
+
 using namespace std;
+
+/* link: https://leetcode.com/problems/valid-anagram */
 
 class Solution {
  public:

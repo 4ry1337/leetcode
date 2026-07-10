@@ -1,8 +1,10 @@
 #include <bits/stdc++.h>
+
 using namespace std;
 
 /*
- * https://leetcode.com/problems/rotate-string/ */
+ * https://leetcode.com/problems/rotate-string/
+ * */
 
 class Solution {
  public:

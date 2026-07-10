@@ -1,5 +1,7 @@
 #include <bits/stdc++.h>
 
+using namespace std;
+
 /* link: https://neetcode.io/problems/one-edit-distance
  *
  * BCR(O(max(M,N)) - every character must be inspected at least once, skipping

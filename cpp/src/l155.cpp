@@ -1,11 +1,8 @@
-/* link: https://leetcode.com/problems/min-stack/description/ */
-
 #include <bits/stdc++.h>
 
-#include <algorithm>
-#include <utility>
-
 using namespace std;
+
+/* link: https://leetcode.com/problems/min-stack/description/ */
 class MinStack {
  private:
   vector<std::pair<int, int>> m_data;
