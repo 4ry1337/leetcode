@@ -3,23 +3,23 @@
 using namespace std;
 
 /* link: https://leetcode.com/problems/min-stack/description/ */
+
 class MinStack {
  private:
-  vector<std::pair<int, int>> m_data;
+  stack<pair<int, int>> m_data;
 
  public:
   MinStack() {}
 
-  void push(int value) {
-    int m = m_data.empty() ? value : getMin();
-    m_data.push_back(make_pair(value, min(value, m)));
+  void push(int val) {
+    m_data.push({val, !m_data.empty() ? min(m_data.top().second, val) : val});
   }
 
-  void pop() { m_data.pop_back(); }
+  void pop() { m_data.pop(); }
 
-  int top() { return m_data[m_data.size() - 1].first; }
+  int top() { return m_data.top().first; }
 
-  int getMin() { return m_data[m_data.size() - 1].second; }
+  int getMin() { return m_data.top().second; }
 };
 
 /**
