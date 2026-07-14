@@ -2,7 +2,7 @@
 
 using namespace std;
 
-/* link:  */
+/* link: https://leetcode.com/problems/merge-two-sorted-lists */
 
 struct ListNode {
   int val;
