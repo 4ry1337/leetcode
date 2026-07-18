@@ -1,10 +1,5 @@
 #include <bits/stdc++.h>
 
-#include <queue>
-#include <sstream>
-#include <string>
-#include <vector>
-
 using namespace std;
 
 /* https://leetcode.com/problems/serialize-and-deserialize-binary-tree/ */
@@ -24,16 +19,27 @@ class Codec {
            serialize(root->right);
   }
 
-  /* TreeNode* deserialize(string data) {
-    vector<string> val;
-    stringstream ss;
+  TreeNode* deserialize(string data) {
+    vector<string> vals;
+    stringstream ss(data);
     string item;
-    while (getline(ss, item, ':')) {
-      val.push_back(item);
-    }
+    while (getline(ss, item, ':')) vals.push_back(item);
     int i = 0;
-    stack<string> st({val});
-  } */
+    return dfs(vals, i);
+  }
+
+  TreeNode* dfs(vector<string>& vals, int& i) {
+    if (i > vals.size()) return nullptr;
+    if (vals[i] == "N") {
+      i++;
+      return nullptr;
+    }
+    int val = stoi(vals[i++]);
+    TreeNode* node = new TreeNode(val);
+    node->left = dfs(vals, i);
+    node->right = dfs(vals, i);
+    return node;
+  }
 };
 
 // Your Codec object will be instantiated and called as such:

@@ -37,7 +37,7 @@ class Solution {
     // }
     // return res;
     int res = 0, m = INT_MAX;
-    for (int i{}; i < p.size(); ++i) {
+    for (size_t i{}; i < p.size(); ++i) {
       res = max(res, p[i] - m);
       m = min(m, p[i]);
     }
