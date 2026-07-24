@@ -1,7 +1,5 @@
 #include <bits/stdc++.h>
 
-#include <algorithm>
-
 using namespace std;
 
 /*
@@ -20,7 +18,7 @@ class Solution {
   vector<vector<int>> threeSum(vector<int>& nums) {
     sort(nums.begin(), nums.end());
     vector<vector<int>> res;
-    for (int i{}; i < nums.size(); ++i) {
+    for (size_t i{}; i < nums.size(); ++i) {
       if (nums[i] > 0) break;
       if (i > 0 && nums[i] == nums[i - 1]) continue;
       int l = i + 1, r = nums.size() - 1;
