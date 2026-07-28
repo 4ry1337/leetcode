@@ -12,8 +12,8 @@ class Solution {
       res.push_back(subset);
       return;
     }
-    if (idx == nums.size()) return;
     for (int i{idx}; i < nums.size(); i++) {
+      if (t - nums[i] < 0) continue;
       subset.push_back(nums[i]);
       backtrack(i, t - nums[i], nums, subset, res);
       subset.pop_back();
