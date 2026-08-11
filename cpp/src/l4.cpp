@@ -1,8 +1,5 @@
 #include <bits/stdc++.h>
 
-#include <algorithm>
-#include <memory>
-
 using namespace std;
 
 /* link: https://leetcode.com/problems/median-of-two-sorted-arrays/ */
