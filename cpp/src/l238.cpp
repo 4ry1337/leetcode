@@ -1,4 +1,4 @@
-#include <bits/stdc++.h>
+#include <vector>
 
 using namespace std;
 
@@ -29,9 +29,10 @@ using namespace std;
 
 class Solution {
  public:
-  vector<int> productExceptSelf(vector<int>& n) {
+  static auto productExceptSelf(vector<int>& n) -> vector<int> {
     vector<int> res(n.size());
-    int pre = 1, post = 1;
+    int pre = 1;
+    int post = 1;
     for (int i = 0; i < n.size(); ++i) {
       res[i] = pre;
       pre *= n[i];

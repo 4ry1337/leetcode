@@ -1,4 +1,4 @@
-#include <bits/stdc++.h>
+#include <vector>
 
 using namespace std;
 
@@ -17,9 +17,11 @@ using namespace std;
 
 class Solution {
  public:
-  int singleNumber(vector<int>& nums) {
+  static auto singleNumber(vector<int>& nums) -> int {
     int res = 0;
-    for (auto& num : nums) res ^= num;
+    for (auto const& num : nums) {
+      res ^= num;
+    }
     return res;
   }
 };

@@ -1,5 +1,5 @@
 
-#include <bits/stdc++.h>
+#include <vector>
 
 using namespace std;
 
@@ -7,7 +7,7 @@ using namespace std;
 
 class Solution {
  public:
-  int removeElement(vector<int>& nums, int val) {
+  static auto removeElement(vector<int>& nums, int val) -> int {
     int index = 0;
     for (int i{}; i < nums.size(); ++i) {
       if (nums[i] != val) {

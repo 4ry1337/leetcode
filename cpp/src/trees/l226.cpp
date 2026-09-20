@@ -6,7 +6,7 @@ using namespace std;
  *
  * solution 1 - recursion
  * using call stack go through each node
- * check if left and right exists and tehn call fucntion again
+ * check if left and right exists and then call function again
  *
  * Time: O(n) space: O(N) using callstack
  *

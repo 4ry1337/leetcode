@@ -1,11 +1,11 @@
-#include <bits/stdc++.h>
+#include <vector>
 
 using namespace std;
 
 /* link: https://leetcode.com/problems/find-the-duplicate-number/
  *
  * solution 1 - brute force
- * nested iteration while we enouncter duplicate
+ * nested iteration while we encounter duplicate
  *
  * time: O(N^2)
  * space: O(1)
@@ -20,11 +20,13 @@ using namespace std;
 
 class Solution {
  public:
-  int findDuplicate(vector<int>& nums) {
+  static auto findDuplicate(vector<int>& nums) -> int {
     int res = nums[0];
     for (int i{}; i < nums.size(); ++i) {
-      int next = nums[res];
-      if (next == 0) return res;
+      int const next = nums[res];
+      if (next == 0) {
+        return res;
+      }
       nums[res] = 0;
       res = next;
     }

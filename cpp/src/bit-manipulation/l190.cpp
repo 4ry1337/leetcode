@@ -1,4 +1,3 @@
-#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -21,10 +20,10 @@ class Solution {
     }
     return res;
   } */
-  int reverseBits(int n) {
+  static auto reverseBits(int n) -> int {
     int res = 0;
     for (int i = 0; i < 32; i++) {
-      int bit = (n >> i) & 1;
+      int const bit = (n >> i) & 1;
       res += (bit << (31 - i));
     }
     return res;

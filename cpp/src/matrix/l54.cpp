@@ -1,4 +1,5 @@
-#include <bits/stdc++.h>
+#include <utility>
+#include <vector>
 
 using namespace std;
 
@@ -10,12 +11,15 @@ using namespace std;
 
 class Solution {
  public:
-  vector<int> spiralOrder(vector<vector<int>>& matrix) {
+  static auto spiralOrder(vector<vector<int>>& matrix) -> vector<int> {
     vector<int> res;
     vector<pair<int, int>> directions = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
-    vector<int> steps = {(int)matrix[0].size(), (int)matrix.size() - 1};
-    int r = 0, c = -1, d = 0;
-    while (steps[d % 2]) {
+    vector<int> steps = {static_cast<int>(matrix[0].size()),
+                         static_cast<int>(matrix.size()) - 1};
+    int r = 0;
+    int c = -1;
+    int d = 0;
+    while (steps[d % 2] != 0) {
       for (int i = 0; i < steps[d % 2]; i++) {
         r += directions[d].first;
         c += directions[d].second;

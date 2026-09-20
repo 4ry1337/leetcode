@@ -1,4 +1,4 @@
-#include <bits/stdc++.h>
+#include <vector>
 
 using namespace std;
 
@@ -6,5 +6,5 @@ using namespace std;
 
 class Solution {
  public:
-  int minHeightShelves(vector<vector<int>>& books, int shelfWidth) {}
+  auto minHeightShelves(vector<vector<int>>& books, int shelfWidth) -> int {}
 };

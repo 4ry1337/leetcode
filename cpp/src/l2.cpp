@@ -6,17 +6,19 @@ struct ListNode {
   int val;
   ListNode* next;
   ListNode() : val(0), next(nullptr) {}
-  ListNode(int x) : val(x), next(nullptr) {}
+  explicit ListNode(int x) : val(x), next(nullptr) {}
   ListNode(int x, ListNode* next) : val(x), next(next) {}
-};
+} __attribute__((aligned(16)));
 
 class Solution {
  public:
-  ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
-    ListNode *dummy = new ListNode(0), *curr = dummy;
+  static auto addTwoNumbers(ListNode* l1, ListNode* l2) -> ListNode* {
+    ListNode* dummy = new ListNode(0);
+    ListNode* curr = dummy;
     int carry = 0;
     while (l1 != nullptr || l2 != nullptr || carry != 0) {
-      int v1 = 0, v2 = 0;
+      int v1 = 0;
+      int v2 = 0;
       if (l1 != nullptr) {
         v1 = l1->val;
         l1 = l1->next;

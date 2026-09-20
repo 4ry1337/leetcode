@@ -1,4 +1,6 @@
-#include <bits/stdc++.h>
+#include <climits>
+#include <queue>
+#include <tuple>
 
 using namespace std;
 
@@ -9,22 +11,30 @@ struct TreeNode {
   TreeNode* left;
   TreeNode* right;
   TreeNode() : val(0), left(nullptr), right(nullptr) {}
-  TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+  explicit TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
   TreeNode(int x, TreeNode* left, TreeNode* right)
       : val(x), left(left), right(right) {}
-};
+} __attribute__((packed)) __attribute__((aligned(32)));
 
 class Solution {
  public:
-  bool isValidBST(TreeNode* root) {
-    if (!root) return true;
+  static auto isValidBST(TreeNode* root) -> bool {
+    if (root == nullptr) {
+      return true;
+    }
     queue<tuple<TreeNode*, long, long>> v({{root, LONG_MIN, LONG_MAX}});
     while (!v.empty()) {
       auto [curr, min, max] = v.front();
       v.pop();
-      if (curr->val <= min || curr->val >= max) return false;
-      if (curr->left) v.push({curr->left, min, curr->val});
-      if (curr->right) v.push({curr->right, curr->val, max});
+      if (curr->val <= min || curr->val >= max) {
+        return false;
+      }
+      if (curr->left != nullptr) {
+        v.emplace(curr->left, min, curr->val);
+      }
+      if (curr->right != nullptr) {
+        v.emplace(curr->right, curr->val, max);
+      }
     }
     return true;
   }

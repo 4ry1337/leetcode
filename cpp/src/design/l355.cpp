@@ -1,4 +1,8 @@
-#include <bits/stdc++.h>
+#include <queue>
+#include <unordered_map>
+#include <unordered_set>
+#include <utility>
+#include <vector>
 
 using namespace std;
 
@@ -11,18 +15,20 @@ class Twitter {
   unordered_map<int, unordered_set<int>> m_follows;
 
  public:
-  Twitter() {}
+  Twitter() = default;
 
   void postTweet(int userId, int tweetId) {
-    m_tweets[userId].push_back({counter++, tweetId});
+    m_tweets[userId].emplace_back(counter++, tweetId);
   }
 
-  vector<int> getNewsFeed(int userId) {
+  auto getNewsFeed(int userId) -> vector<int> {
     priority_queue<pair<int, int>> feed;
-    for (auto& followee : m_follows[userId]) {
+    for (const auto& followee : m_follows[userId]) {
       for (auto& [counter, tweet] : m_tweets[followee]) {
-        feed.push({counter, tweet});
-        if (feed.size() > 10) feed.pop();
+        feed.emplace(counter, tweet);
+        if (feed.size() > 10) {
+          feed.pop();
+        }
       }
     }
     vector<int> res;
@@ -34,7 +40,9 @@ class Twitter {
   }
 
   void follow(int followerId, int followeeId) {
-    if (followeeId == followerId) return;
+    if (followeeId == followerId) {
+      return;
+    }
     m_follows[followerId].insert(followeeId);
   }
 

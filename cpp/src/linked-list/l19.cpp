@@ -5,7 +5,7 @@
  * solution 1: fast and slow
  *
  * make fast K distance from slow
- * move together untill fast reaches end
+ * move together until fast reaches end
  * remove slow
  *
  * time: O(N)
@@ -16,22 +16,28 @@ struct ListNode {
   int val;
   ListNode* next;
   ListNode() : val(0), next(nullptr) {}
-  ListNode(int x) : val(x), next(nullptr) {}
+  explicit ListNode(int x) : val(x), next(nullptr) {}
   ListNode(int x, ListNode* next) : val(x), next(next) {}
-};
+} __attribute__((aligned(16)));
 
 class Solution {
  public:
-  ListNode* removeNthFromEnd(ListNode* head, int n) {
-    if (!head) return head;
-    ListNode *dummy = new ListNode(0, head), *slow = dummy, *fast = dummy;
-    while (fast) {
+  static auto removeNthFromEnd(ListNode* head, int n) -> ListNode* {
+    if (head == nullptr) {
+      return head;
+    }
+    ListNode* dummy = new ListNode(0, head);
+    ListNode* slow = dummy;
+    ListNode* fast = dummy;
+    while (fast != nullptr) {
       fast = fast->next;
-      if (n < 0) slow = slow->next;
+      if (n < 0) {
+        slow = slow->next;
+      }
       n--;
     }
-    if (slow->next) {
-      ListNode* temp = slow->next;
+    if (slow->next != nullptr) {
+      ListNode const* temp = slow->next;
       slow->next = slow->next->next;
       delete temp;
     }

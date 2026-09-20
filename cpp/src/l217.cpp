@@ -1,4 +1,5 @@
-#include <bits/stdc++.h>
+#include <unordered_set>
+#include <vector>
 
 using namespace std;
 
@@ -58,9 +59,9 @@ class Solution {
   // }
   // problem: two lookups instead of one
 
-  bool containsDuplicate(vector<int>& nums) {
+  static auto containsDuplicate(vector<int>& nums) -> bool {
     std::unordered_set<int> s;
-    for (auto& n : nums) {
+    for (auto const& n : nums) {
       if (!s.insert(n).second) {
         return true;
       }

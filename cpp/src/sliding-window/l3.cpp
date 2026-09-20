@@ -1,4 +1,6 @@
-#include <bits/stdc++.h>
+#include <algorithm>
+#include <string>
+#include <unordered_set>
 
 using namespace std;
 
@@ -7,7 +9,7 @@ using namespace std;
  *
  * solution 1 - brute force
  * start nested loops
- * first is begining second is end
+ * first is beginning second is end
  * check if there no repeating characters save the result
  * time: O(N^2) space: O(1)
  *
@@ -19,8 +21,10 @@ using namespace std;
 
 class Solution {
  public:
-  int lengthOfLongestSubstring(string s) {
-    int res = 0, l = 0, r = 0;
+  static auto lengthOfLongestSubstring(string s) -> int {
+    int res = 0;
+    int l = 0;
+    int r = 0;
     unordered_set<char> st;
     while (r < s.size()) {
       if (st.find(s[r]) != st.end()) {

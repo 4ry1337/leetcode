@@ -15,16 +15,19 @@ struct ListNode {
   int val;
   ListNode* next;
   ListNode() : val(0), next(nullptr) {}
-  ListNode(int x) : val(x), next(nullptr) {}
+  explicit ListNode(int x) : val(x), next(nullptr) {}
   ListNode(int x, ListNode* next) : val(x), next(next) {}
-};
+} __attribute__((aligned(16)));
 
 class Solution {
  public:
-  ListNode* partition(ListNode* head, int x) {
-    ListNode *small = new ListNode(0, head), *prev = small, *curr = small->next;
-    ListNode *great = new ListNode(0), *k = great;
-    while (curr) {
+  static auto partition(ListNode* head, int x) -> ListNode* {
+    ListNode* small = new ListNode(0, head);
+    ListNode* prev = small;
+    ListNode* curr = small->next;
+    ListNode* great = new ListNode(0);
+    ListNode* k = great;
+    while (curr != nullptr) {
       if (curr->val >= x) {
         k->next = curr;
         k = k->next;

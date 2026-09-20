@@ -1,4 +1,4 @@
-#include <bits/stdc++.h>
+#include <cstddef>
 
 using namespace std;
 
@@ -9,8 +9,8 @@ using namespace std;
 struct ListNode {
   int val;
   ListNode* next;
-  ListNode(int x) : val(x), next(NULL) {}
-};
+  explicit ListNode(int x) : val(x), next(nullptr) {}
+} __attribute__((aligned(16)));
 
 class Solution {
  public:
@@ -37,10 +37,14 @@ class Solution {
   } */
   // problems: 3 passes, modified values what if node.val is not posisitve
   // numbers?
-  ListNode* getIntersectionNode(ListNode* headA, ListNode* headB) {
-    ListNode *a = headA, *b = headB;
+  static auto getIntersectionNode(ListNode* headA, ListNode* headB)
+      -> ListNode* {
+    ListNode* a = headA;
+    ListNode* b = headB;
     while (a != nullptr && b != nullptr) {
-      if (a == b) return a;
+      if (a == b) {
+        return a;
+      }
       a = a->next;
       b = b->next;
       if (a == nullptr) {

@@ -1,4 +1,5 @@
-#include <bits/stdc++.h>
+#include <unordered_map>
+#include <vector>
 
 using namespace std;
 
@@ -10,18 +11,24 @@ using namespace std;
 
 class Solution {
  public:
-  vector<int> topKFrequent(vector<int>& nums, int k) {
+  static auto topKFrequent(vector<int>& nums, int k) -> vector<int> {
     unordered_map<int, int> mp;
-    for (auto& num : nums) mp[num]++;
+    for (auto const& num : nums) {
+      mp[num]++;
+    }
 
     vector<vector<int>> freq(nums.size() + 1);
-    for (const auto& [k, v] : mp) freq[v].push_back(k);
+    for (const auto& [k, v] : mp) {
+      freq[v].push_back(k);
+    }
 
     vector<int> res;
     for (int i = freq.size() - 1; i >= 0; --i) {
       for (const auto& v : freq[i]) {
         res.push_back(v);
-        if (res.size() == k) return res;
+        if (res.size() == k) {
+          return res;
+        }
       }
     }
     return res;

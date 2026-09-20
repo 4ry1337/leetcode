@@ -1,4 +1,7 @@
-#include <bits/stdc++.h>
+#include <algorithm>
+#include <climits>
+#include <cstddef>
+#include <vector>
 
 using namespace std;
 
@@ -10,13 +13,13 @@ using namespace std;
  * time: O(n^2) space: O(1)
  *
  * solution 2 - sliding window
- * init left and right bounderies of sliding window
+ * init left and right boundaries of sliding window
  * window grows right when left boundary is smaller or equal to right
  * if right becomes smaller than left we move left
  *
  * time: O(N) space: O(1)
  *
- * problem: well we acutally searching current value - min value before it
+ * problem: well we actually searching current value - min value before it
  *
  * solution 3 - dp
  * we assume current is best price
@@ -28,7 +31,7 @@ using namespace std;
 
 class Solution {
  public:
-  int maxProfit(vector<int>& p) {
+  static auto maxProfit(vector<int>& p) -> int {
     // int res = 0, l = 0, r = 0;
     // while (r < p.size()) {
     //   res = max(res, p[r] - p[l]);
@@ -36,7 +39,8 @@ class Solution {
     //   else r++;
     // }
     // return res;
-    int res = 0, m = INT_MAX;
+    int res = 0;
+    int m = INT_MAX;
     for (size_t i{}; i < p.size(); ++i) {
       res = max(res, p[i] - m);
       m = min(m, p[i]);

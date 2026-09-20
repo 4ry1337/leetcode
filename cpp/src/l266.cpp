@@ -42,7 +42,7 @@ using namespace std;
 
 class Solution {
  public:
-  bool canPermutePalindrome(string s) {
+  bool canPermutePalindrome(const string& s) {
     std::array<int, 26> freq{};
     for (char& c : s) {
       freq[c - 'a']++;

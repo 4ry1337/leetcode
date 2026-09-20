@@ -1,4 +1,5 @@
-#include <bits/stdc++.h>
+#include <utility>
+#include <vector>
 
 using namespace std;
 
@@ -22,8 +23,8 @@ using namespace std;
 
 class Solution {
  public:
-  void rotate(vector<vector<int>>& m) {
-    int l = m.size();
+  static void rotate(vector<vector<int>>& m) {
+    int const l = m.size();
     for (int i{}; i < l; ++i) {
       for (int j{}; j < l - 1 - i; ++j) {
         swap(m[i][j], m[l - 1 - j][l - 1 - i]);

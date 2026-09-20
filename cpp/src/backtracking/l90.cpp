@@ -1,4 +1,6 @@
-#include <bits/stdc++.h>
+#include <algorithm>
+#include <boost/range/algorithm/sort.hpp>
+#include <vector>
 
 using namespace std;
 
@@ -25,8 +27,8 @@ class Solution {
   }
 
  public:
-  vector<vector<int>> subsetsWithDup(vector<int>& nums) {
-    sort(nums.begin(), nums.end());
+  auto subsetsWithDup(vector<int>& nums) -> vector<vector<int>> {
+    boost::range::sort(nums);
     vector<vector<int>> res;
     vector<int> subset;
     backtrack(0, nums, subset, res);

@@ -1,4 +1,4 @@
-#include <bits/stdc++.h>
+#include <vector>
 
 using namespace std;
 
@@ -38,7 +38,7 @@ class Solution {
   }
 
  public:
-  vector<vector<int>> subsets(vector<int>& nums) {
+  auto subsets(vector<int>& nums) -> vector<vector<int>> {
     vector<vector<int>> res;
     vector<int> subset;
     backtrack(0, nums, subset, res);

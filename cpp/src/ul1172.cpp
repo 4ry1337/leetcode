@@ -1,13 +1,15 @@
-#include <bits/stdc++.h>
+#include <functional>
+#include <queue>
+#include <vector>
 
 using namespace std;
 
 class DinnerPlates {
  public:
   vector<int> stack;
-  priority_queue<int, vector<int>, greater<int>> pq;
+  priority_queue<int, vector<int>, greater<>> pq;
   int m_capacity;
-  DinnerPlates(int capacity) : m_capacity(capacity) {}
+  explicit DinnerPlates(int capacity) : m_capacity(capacity) {}
 
   void push(int val) {
     while (stack.empty() && !pq.empty()) {
@@ -21,22 +23,24 @@ class DinnerPlates {
     stack.push_back(val);
   }
 
-  int pop() {
-    if (stack.size() == 0) {
+  auto pop() -> int {
+    if (stack.empty()) {
       return -1;
     }
     while (stack[stack.size() - 1] == -1) {
       stack.pop_back();
     }
-    int temp = stack[stack.size() - 1];
+    int const temp = stack[stack.size() - 1];
     stack.pop_back();
 
     return temp;
   }
 
-  int popAtStack(int index) {
-    int end_index = index * m_capacity + m_capacity - 1;
-    if (end_index >= stack.size()) return -1;
+  auto popAtStack(int index) -> int {
+    int end_index = (index * m_capacity) + m_capacity - 1;
+    if (end_index >= stack.size()) {
+      return -1;
+    }
     int temp = -1;
     while (end_index >= index * m_capacity && temp == -1) {
       temp = stack[end_index--];

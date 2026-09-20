@@ -1,4 +1,4 @@
-#include <bits/stdc++.h>
+#include <cstddef>
 
 using namespace std;
 
@@ -21,17 +21,20 @@ using namespace std;
 struct ListNode {
   int val;
   ListNode* next;
-  ListNode(int x) : val(x), next(NULL) {}
-};
+  explicit ListNode(int x) : val(x), next(nullptr) {}
+} __attribute__((aligned(16)));
 
 class Solution {
  public:
-  bool hasCycle(ListNode* head) {
-    ListNode *slow = head, *fast = head;
-    while (fast && fast->next) {
+  static auto hasCycle(ListNode* head) -> bool {
+    ListNode* slow = head;
+    ListNode* fast = head;
+    while ((fast != nullptr) && (fast->next != nullptr)) {
       slow = slow->next;
       fast = fast->next->next;
-      if (slow == fast) return true;
+      if (slow == fast) {
+        return true;
+      }
     }
     return false;
   }

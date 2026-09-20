@@ -1,4 +1,5 @@
-#include <bits/stdc++.h>
+#include <string>
+#include <vector>
 
 using namespace std;
 
@@ -8,23 +9,26 @@ class Solution {
  private:
   int rows, cols;
 
-  bool dfs(vector<vector<char>>& board, string& word, int i, int j, int idx) {
-    if (idx == word.size()) return true;
+  auto dfs(vector<vector<char>>& board, string& word, int i, int j, int idx)
+      -> bool {
+    if (idx == word.size()) {
+      return true;
+    }
     if (i < 0 || j < 0 || i >= rows || j >= cols || board[i][j] != word[idx] ||
         board[i][j] == '#') {
       return false;
     }
     board[i][j] = '#';
-    bool res = dfs(board, word, i, j + 1, idx + 1) ||
-               dfs(board, word, i, j - 1, idx + 1) ||
-               dfs(board, word, i + 1, j, idx + 1) ||
-               dfs(board, word, i - 1, j, idx + 1);
+    bool const res = dfs(board, word, i, j + 1, idx + 1) ||
+                     dfs(board, word, i, j - 1, idx + 1) ||
+                     dfs(board, word, i + 1, j, idx + 1) ||
+                     dfs(board, word, i - 1, j, idx + 1);
     board[i][j] = word[idx];
     return res;
   }
 
  public:
-  bool exist(vector<vector<char>>& board, string word) {
+  auto exist(vector<vector<char>>& board, string word) -> bool {
     rows = board.size();
     cols = board[0].size();
 

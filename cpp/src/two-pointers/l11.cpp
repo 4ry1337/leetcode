@@ -1,6 +1,5 @@
-#include <bits/stdc++.h>
 
-#include <algorithm>
+#include <vector>
 
 using namespace std;
 
@@ -32,8 +31,10 @@ using namespace std;
 
 class Solution {
  public:
-  int maxArea(vector<int>& h) {
-    int res = 0, l = 0, r = h.size() - 1;
+  static auto maxArea(vector<int>& h) -> int {
+    int res = 0;
+    int l = 0;
+    int r = h.size() - 1;
     while (l < r) {
       res = max(res, (r - l) * min(h[r], h[l]));
       if (h[l] > h[r]) {

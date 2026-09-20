@@ -1,4 +1,4 @@
-#include <bits/stdc++.h>
+#include <vector>
 
 using namespace std;
 
@@ -38,11 +38,13 @@ class Solution {
     for (int i{}; i <= n; ++i) res.push_back(__builtin_popcount(i));
     return res;
   } */
-  vector<int> countBits(int n) {
+  static auto countBits(int n) -> vector<int> {
     vector<int> res(n + 1);
     for (int i = 1; i <= n; ++i) {
       int offset = 1;
-      while (offset * 2 <= i) offset *= 2;
+      while (offset * 2 <= i) {
+        offset *= 2;
+      }
       res[i] = 1 + res[i - offset];
     }
     return res;

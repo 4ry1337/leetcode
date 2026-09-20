@@ -1,4 +1,4 @@
-#include <bits/stdc++.h>
+#include <vector>
 
 using namespace std;
 
@@ -6,7 +6,7 @@ using namespace std;
  *
  * solution 1 - hashset
  * 1. init hashset from nums
- * 2. iterate throug range 0 to N inclusive see what number is missing from
+ * 2. iterate through range 0 to N inclusive see what number is missing from
  * hashset
  * time: O(N) space: O(N)
  *
@@ -21,9 +21,11 @@ using namespace std;
 
 class Solution {
  public:
-  int missingNumber(vector<int>& nums) {
+  static auto missingNumber(vector<int>& nums) -> int {
     int sum = (nums.size() * (nums.size() + 1)) / 2;
-    for (auto& i : nums) sum -= i;
+    for (auto const& i : nums) {
+      sum -= i;
+    }
     return sum;
   }
 };

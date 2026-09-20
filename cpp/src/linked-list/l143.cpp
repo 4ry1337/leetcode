@@ -1,4 +1,3 @@
-#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -16,28 +15,32 @@ struct ListNode {
   int val;
   ListNode* next;
   ListNode() : val(0), next(nullptr) {}
-  ListNode(int x) : val(x), next(nullptr) {}
+  explicit ListNode(int x) : val(x), next(nullptr) {}
   ListNode(int x, ListNode* next) : val(x), next(next) {}
-};
+} __attribute__((aligned(16)));
 
 class Solution {
  public:
-  void reorderList(ListNode* head) {
-    ListNode *slow = head, *fast = head;
-    while (fast && fast->next) {
+  static void reorderList(ListNode* head) {
+    ListNode* slow = head;
+    ListNode* fast = head;
+    while ((fast != nullptr) && (fast->next != nullptr)) {
       slow = slow->next;
       fast = fast->next->next;
     }
-    ListNode *curr = slow, *prev = nullptr;
+    ListNode* curr = slow;
+    ListNode* prev = nullptr;
     while (curr != nullptr) {
       ListNode* next = curr->next;
       curr->next = prev;
       prev = curr;
       curr = next;
     }
-    ListNode *h1 = head, *h2 = prev;
+    ListNode* h1 = head;
+    ListNode* h2 = prev;
     while (h1->next != h2 && fast != h2) {
-      ListNode *h1_next = h1->next, *h2_next = h2->next;
+      ListNode* h1_next = h1->next;
+      ListNode* h2_next = h2->next;
 
       h1->next = h2;
       h2->next = h1_next;

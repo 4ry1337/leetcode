@@ -1,4 +1,6 @@
-#include <bits/stdc++.h>
+#include <stack>
+#include <utility>
+#include <vector>
 
 using namespace std;
 
@@ -33,7 +35,7 @@ using namespace std;
 
 class Solution {
  public:
-  vector<int> dailyTemperatures(vector<int>& t) {
+  static auto dailyTemperatures(vector<int>& t) -> vector<int> {
     vector<int> res(t.size());
 
     stack<pair<int, int>> st;
@@ -42,7 +44,7 @@ class Solution {
         res[st.top().second] = i - st.top().second;
         st.pop();
       }
-      st.push({t[i], i});
+      st.emplace(t[i], i);
     }
 
     return res;

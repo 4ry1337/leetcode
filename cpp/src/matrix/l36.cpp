@@ -9,7 +9,7 @@ using namespace std;
  * 2. nested loop 1 through each row calculate freq in a row if any more than 1
  * return false
  * 3. nested loop 2 for col
- * 4. separete 3 nested loops going thourgh each 3x3 cell doing the same
+ * 4. separate 3 nested loops going through each 3x3 cell doing the same
  *
  * solution 2 one pass
  * 1. create freq matrices 9x9 for each rows and cols, and 3x3x3 for cells

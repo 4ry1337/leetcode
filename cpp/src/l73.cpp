@@ -1,4 +1,4 @@
-#include <bits/stdc++.h>
+#include <vector>
 using namespace std;
 
 /* link: https://leetcode.com/problems/set-matrix-zeroes/
@@ -8,7 +8,7 @@ using namespace std;
  *
  * solution 2:
  *
- * use simple data structure to store 0's and refernce it to convert rows and
+ * use simple data structure to store 0's and reference it to convert rows and
  * columns
  *
  * solution 3:
@@ -27,9 +27,9 @@ using namespace std;
 
 class Solution {
  public:
-  void setZeroes(vector<vector<int>>& m) {
-    int r = m.size();
-    int c = m[0].size();
+  static void setZeroes(vector<vector<int>>& m) {
+    int const r = m.size();
+    int const c = m[0].size();
     bool row = false;
     bool col = false;
     for (int i{}; i < r; ++i) {

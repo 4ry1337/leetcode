@@ -1,4 +1,4 @@
-#include <bits/stdc++.h>
+#include <vector>
 
 using namespace std;
 
@@ -22,10 +22,13 @@ using namespace std;
 
 class Solution {
  public:
-  int majorityElement(vector<int>& nums) {
-    int count = 0, cnd;
-    for (auto& n : nums) {
-      if (count == 0) cnd = n;
+  static auto majorityElement(vector<int>& nums) -> int {
+    int count = 0;
+    int cnd;
+    for (auto const& n : nums) {
+      if (count == 0) {
+        cnd = n;
+      }
       count += (cnd == n) ? 1 : -1;
     }
     return cnd;

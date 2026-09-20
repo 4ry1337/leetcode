@@ -1,6 +1,10 @@
-#include <bits/stdc++.h>
 
-#include <stack>
+#include <algorithm>
+#include <boost/range/adaptor/reversed.hpp>
+#include <boost/range/algorithm/sort.hpp>
+#include <cstddef>
+#include <utility>
+#include <vector>
 
 using namespace std;
 
@@ -10,7 +14,7 @@ using namespace std;
  * solution 1 - stack
  * 1. sort in descending position and speed by creating a temp vector pair
  * 2. init stack
- * 3. we calcualte time to reach target for each
+ * 3. we calculate time to reach target for each
  *    - t[i] = (target - p[i]) / s[i]
  *    - if time of ahead car if higher than curr they merge into fleet
  * 4. we return size of stack
@@ -19,14 +23,18 @@ using namespace std;
 
 class Solution {
  public:
-  int carFleet(int t, vector<int>& p, vector<int>& s) {
+  static auto carFleet(int t, vector<int>& p, vector<int>& s) -> int {
     vector<pair<int, int>> ps;
-    for (size_t i{}; i < p.size(); ++i) ps.push_back({p[i], s[i]});
-    sort(ps.rbegin(), ps.rend());
+    for (size_t i{}; i < p.size(); ++i) {
+      ps.emplace_back(p[i], s[i]);
+    }
+    boost::range::sort(boost::adaptors::reverse(ps));
     stack<double> st;
     for (auto& [pos, sp] : ps) {
-      double time = (double)(t - pos) / sp;
-      if (!st.empty() && st.top() >= time) continue;
+      double const time = static_cast<double>(t - pos) / sp;
+      if (!st.empty() && st.top() >= time) {
+        continue;
+      }
       st.push(time);
     }
     return st.size();

@@ -14,7 +14,7 @@ using namespace std;
  *
  * time: O(N) space: O(N)
  *
- * solution 2 - runnner
+ * solution 2 - runner
  *
  * have two pointers one faster and one slower
  *

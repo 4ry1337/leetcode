@@ -1,11 +1,13 @@
-#include <bits/stdc++.h>
+#include <stack>
+#include <utility>
 
 using namespace std;
 
 /*  */
 
-void sort_stack(stack<int>& s) {
-  stack<int> sorted, helper;
+static void sort_stack(stack<int>& s) {
+  stack<int> sorted;
+  stack<int> helper;
   while (!s.empty()) {
     while (!sorted.empty() && sorted.top() < s.top()) {
       helper.push(sorted.top());
@@ -18,7 +20,7 @@ void sort_stack(stack<int>& s) {
       helper.pop();
     }
   }
-  s = sorted;
+  s = std::move(sorted);
 }
 
 /* int main() {

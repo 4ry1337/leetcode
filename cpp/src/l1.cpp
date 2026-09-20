@@ -6,7 +6,7 @@ using namespace std;
  * BCR(O(N))
  *
  * solution 1 - brute force
- * run nested loop in nums until we find two indicies that sum to target
+ * run nested loop in nums until we find two indices that sum to target
  * bottleneck is search for second item
  *
  * solution 2 - hashmap
@@ -17,14 +17,14 @@ using namespace std;
  * */
 class Solution {
  public:
-  vector<int> twoSum(vector<int>& nums, int target) {
-    unordered_map<int, int> mp;
+  static vector<int> twoSum(vector<int>& nums, int target) {
+    unordered_map<int, int> ump;
     for (int i{}; i < nums.size(); ++i) {
-      auto it = mp.find(nums[i]);
-      if (it != mp.end()) {
+      auto it = ump.find(nums[i]);
+      if (it != ump.end()) {
         return vector<int>({it->second, i});
       }
-      mp[target - nums[i]] = i;
+      ump[target - nums[i]] = i;
     }
     return vector<int>();
   }

@@ -1,4 +1,6 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <string>
+#include <vector>
 
 using namespace std;
 
@@ -20,9 +22,9 @@ using namespace std;
 
 class Solution {
  public:
-  string encode(vector<string>& strs) {
-    string res = "";
-    for (auto& str : strs) {
+  static auto encode(vector<string>& strs) -> string {
+    string res;
+    for (auto const& str : strs) {
       res += to_string(str.size());
       res += '#';
       res += str;
@@ -31,7 +33,7 @@ class Solution {
     return res;
   }
 
-  vector<string> decode(string s) {
+  static auto decode(string s) -> vector<string> {
     vector<string> res;
     int i{};
     while (i < s.size()) {

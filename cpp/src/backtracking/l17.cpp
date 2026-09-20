@@ -1,4 +1,6 @@
-#include <bits/stdc++.h>
+#include <string>
+#include <unordered_map>
+#include <vector>
 
 using namespace std;
 
@@ -17,7 +19,7 @@ class Solution {
     if (digits.size() == idx) {
       res.push_back(curr);
     }
-    for (char& c : mp[digits[idx]]) {
+    for (char const& c : mp[digits[idx]]) {
       curr += c;
       backtrack(digits, idx + 1, curr);
       curr.pop_back();
@@ -25,8 +27,8 @@ class Solution {
   }
 
  public:
-  vector<string> letterCombinations(string digits) {
-    string curr = "";
+  auto letterCombinations(string digits) -> vector<string> {
+    string curr;
     backtrack(digits, 0, curr);
     return res;
   }

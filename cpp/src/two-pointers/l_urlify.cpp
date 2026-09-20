@@ -1,4 +1,4 @@
-#include <bits/stdc++.h>
+#include <string>
 
 using namespace std;
 
@@ -33,8 +33,9 @@ using namespace std;
 
 class Solution {
  public:
-  const string& replaceSpace(string& s) {
-    int r = s.size() - 1, l = r;
+  static auto replaceSpace(string& s) -> const string& {
+    int r = s.size() - 1;
+    int l = r;
     while (s[l] == ' ') {
       l--;
     }

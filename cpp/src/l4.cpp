@@ -1,4 +1,7 @@
-#include <bits/stdc++.h>
+#include <algorithm>
+#include <climits>
+#include <utility>
+#include <vector>
 
 using namespace std;
 
@@ -36,24 +39,30 @@ class Solution {
     return -1;
   } */
   // hard to follow
-  double findMedianSortedArrays(vector<int>& A, vector<int>& B) {
-    int total = A.size() + B.size();
-    int half = (total + 1) / 2;
-    if (A.size() > B.size()) swap(A, B);
-    int l = 0, r = A.size() - 1;
+  static auto findMedianSortedArrays(vector<int>& A, vector<int>& B) -> double {
+    int const total = A.size() + B.size();
+    int const half = (total + 1) / 2;
+    if (A.size() > B.size()) {
+      swap(A, B);
+    }
+    int l = 0;
+    int r = A.size() - 1;
     while (l <= r) {
-      int am = l + (r - l) / 2;
-      int bm = half - am;
+      int am = l + ((r - l) / 2);
+      int const bm = half - am;
 
-      int al = am > 0 ? A[am - 1] : INT_MIN;
-      int ar = am < (int)A.size() ? A[am] : INT_MAX;
-      int bl = bm > 0 ? B[bm - 1] : INT_MIN;
-      int br = bm < (int)B.size() ? B[bm] : INT_MAX;
+      int const al = am > 0 ? A[am - 1] : INT_MIN;
+      int const ar = am < static_cast<int>(A.size()) ? A[am] : INT_MAX;
+      int const bl = bm > 0 ? B[bm - 1] : INT_MIN;
+      int const br = bm < static_cast<int>(B.size()) ? B[bm] : INT_MAX;
 
       if (al <= br && bl <= ar) {
-        if (total % 2 == 0) return (max(al, bl) + min(ar, br)) / 2.0;
+        if (total % 2 == 0) {
+          return (max(al, bl) + min(ar, br)) / 2.0;
+        }
         return max(al, bl);
-      } else if (al > br) {
+      }
+      if (al > br) {
         am = l + 1;
       } else {
         am = r - 1;

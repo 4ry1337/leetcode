@@ -1,4 +1,5 @@
-#include <bits/stdc++.h>
+#include <stack>
+#include <string>
 
 using namespace std;
 
@@ -6,9 +7,9 @@ using namespace std;
 
 class Solution {
  public:
-  bool isValid(string s) {
+  static auto isValid(const string& s) -> bool {
     stack<char> st;
-    for (auto& c : s) {
+    for (const auto& c : s) {
       if (!st.empty() &&
           ((st.top() == '{' && c == '}') || (st.top() == '[' && c == ']') ||
            (st.top() == '(' && c == ')'))) {

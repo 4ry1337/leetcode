@@ -1,4 +1,6 @@
-#include <bits/stdc++.h>
+#include <algorithm>
+#include <boost/range/algorithm/reverse.hpp>
+#include <vector>
 
 using namespace std;
 
@@ -6,11 +8,13 @@ using namespace std;
 
 class Solution {
  public:
-  vector<int> sortedSquares(vector<int>& nums) {
+  static auto sortedSquares(vector<int>& nums) -> vector<int> {
     vector<int> res;
-    int l = 0, r = nums.size() - 1;
+    int l = 0;
+    int r = nums.size() - 1;
     while (l <= r) {
-      int sl = nums[l] * nums[l], sr = nums[r] * nums[r];
+      int sl = nums[l] * nums[l];
+      int sr = nums[r] * nums[r];
       if (sl > sr) {
         res.push_back(sl);
         l++;
@@ -19,7 +23,7 @@ class Solution {
         r--;
       }
     }
-    reverse(res.begin(), res.end());
+    boost::range::reverse(res);
     return res;
   }
 };

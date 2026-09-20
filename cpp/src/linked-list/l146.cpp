@@ -27,7 +27,7 @@ using namespace std;
  *
  *
  * solution 1 - double linked node
- * for key value retrival hashmap is fastest
+ * for key value retrieval hashmap is fastest
  *
  * */
 

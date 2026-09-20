@@ -8,7 +8,7 @@ using namespace std;
  * 1. init freq map for 26 uppercase letter
  * 2. start two pointers
  * 3. move fastest and keep track of max_freq
- *    - max frequence can change only if current index get's higheer frequency
+ *    - max frequency can change only if current index get's higheer frequency
  * 4. if length of window exceeds max frequency and K we shrink the window
  * 5. store max window size and return it
  */

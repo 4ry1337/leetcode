@@ -1,4 +1,5 @@
-#include <bits/stdc++.h>
+#include <array>
+#include <string>
 
 using namespace std;
 
@@ -6,16 +7,18 @@ using namespace std;
 
 class Solution {
  public:
-  bool isAnagram(string s, string t) {
-    array<int, 26> freq;
-    for (auto& c : s) {
+  static auto isAnagram(const string& s, const string& t) -> bool {
+    array<int, 26> freq{};
+    for (const auto& c : s) {
       ++freq[c - 'a'];
     }
-    for (auto& c : t) {
+    for (const auto& c : t) {
       --freq[c - 'a'];
     }
-    for (auto& f : freq) {
-      if (f != 0) return false;
+    for (auto const& f : freq) {
+      if (f != 0) {
+        return false;
+      }
     }
     return true;
   }

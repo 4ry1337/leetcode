@@ -13,7 +13,7 @@ using namespace std;
  * we create copy of nodes next to each other so we get from
  * A -> B ->
  * A -> A' -> B -> B' ->
- * we substitude their random to original random->next
+ * we substitute their random to original random->next
  * + - - - - -+
  * +          +
  * A -> A' -> B -> B' ->

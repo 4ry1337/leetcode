@@ -1,6 +1,4 @@
-#include <bits/stdc++.h>
 
-#include <vector>
 
 using namespace std;
 
@@ -8,16 +6,19 @@ using namespace std;
 
 class Solution {
  public:
-  vector<int> twoSum(vector<int>& nums, int t) {
-    int l = 0, r = nums.size() - 1;
+  static auto twoSum(vector<int>& nums, int t) -> vector<int> {
+    int l = 0;
+    int r = nums.size() - 1;
     while (l < r) {
-      int val = nums[l] + nums[r];
-      if (val == t)
+      int const val = nums[l] + nums[r];
+      if (val == t) {
         return vector<int>{l + 1, r + 1};
-      else if (val < t)
+      }
+      if (val < t) {
         l++;
-      else
+      } else {
         r--;
+      }
     }
     return vector<int>{};
   }

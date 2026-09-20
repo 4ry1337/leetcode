@@ -1,4 +1,6 @@
-#include <bits/stdc++.h>
+#include <algorithm>
+#include <cmath>
+#include <vector>
 
 using namespace std;
 
@@ -9,19 +11,25 @@ using namespace std;
 
 class Solution {
  public:
-  int minEatingSpeed(vector<int>& p, int h) {
+  static auto minEatingSpeed(vector<int>& p, int h) -> int {
     int base = 1;
     int size = *max_element(p.begin(), p.end());
     while (size > 1) {
-      int half = size / 2;
-      int mid = base + half;
+      int const half = size / 2;
+      int const mid = base + half;
       long long val = 0;
-      for (int x : p) val += ceil(static_cast<double>(x) / mid);
-      if (val > h) base = mid;
+      for (int const x : p) {
+        val += ceil(static_cast<double>(x) / mid);
+      }
+      if (val > h) {
+        base = mid;
+      }
       size -= half;
     }
     long long val = 0;
-    for (int x : p) val += ceil(static_cast<double>(x) / base);
-    return base + (val > h);
+    for (int const x : p) {
+      val += ceil(static_cast<double>(x) / base);
+    }
+    return base + static_cast<int>(val > h);
   }
 };

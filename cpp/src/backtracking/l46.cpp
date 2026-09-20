@@ -1,6 +1,7 @@
-#include <bits/stdc++.h>
 
-#include <algorithm>
+#include <boost/range/algorithm/permutation.hpp>
+#include <boost/range/algorithm/sort.hpp>
+#include <vector>
 
 using namespace std;
 
@@ -47,12 +48,12 @@ using namespace std;
  * */
 class Solution {
  public:
-  vector<vector<int>> permute(vector<int>& nums) {
-    sort(nums.begin(), nums.end());
+  static auto permute(vector<int>& nums) -> vector<vector<int>> {
+    boost::range::sort(nums);
     vector<vector<int>> res;
     do {
       res.push_back(nums);
-    } while (next_permutation(nums.begin(), nums.end()));
+    } while (boost::range::next_permutation(nums));
     return res;
   }
 };

@@ -1,4 +1,6 @@
-#include <bits/stdc++.h>
+#include <algorithm>
+#include <stack>
+#include <utility>
 
 using namespace std;
 
@@ -9,17 +11,17 @@ class MinStack {
   stack<pair<int, int>> m_data;
 
  public:
-  MinStack() {}
+  MinStack() = default;
 
   void push(int val) {
-    m_data.push({val, !m_data.empty() ? min(m_data.top().second, val) : val});
+    m_data.emplace(val, !m_data.empty() ? min(m_data.top().second, val) : val);
   }
 
   void pop() { m_data.pop(); }
 
-  int top() { return m_data.top().first; }
+  auto top() -> int { return m_data.top().first; }
 
-  int getMin() { return m_data.top().second; }
+  auto getMin() -> int { return m_data.top().second; }
 };
 
 /**

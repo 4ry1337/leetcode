@@ -1,4 +1,7 @@
-#include <bits/stdc++.h>
+#include <algorithm>
+#include <climits>
+#include <unordered_map>
+#include <vector>
 
 using namespace std;
 
@@ -69,11 +72,13 @@ class Solution {
     }
     return max(m, res);
 } */
-  int longestConsecutive(vector<int>& nums) {
+  static auto longestConsecutive(vector<int>& nums) -> int {
     int res = INT_MIN;
     unordered_map<int, int> mp;
-    for (auto& n : nums) {
-      if (mp[n]) continue;
+    for (auto const& n : nums) {
+      if (mp[n] != 0) {
+        continue;
+      }
       mp[n] = mp[n - 1] + mp[n + 1] + 1;
       mp[n - mp[n - 1]] = mp[n];
       mp[n + mp[n + 1]] = mp[n];

@@ -1,4 +1,3 @@
-#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -35,9 +34,9 @@ class Solution {
     }
     return res;
   } */
-  int getSum(int a, int b) {
+  static auto getSum(int a, int b) -> int {
     while (b != 0) {
-      int carry = (a & b) << 1;
+      int const carry = (a & b) << 1;
       a ^= b;
       b = carry;
     }

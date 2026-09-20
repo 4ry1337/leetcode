@@ -9,10 +9,11 @@ class ParkingSystem {
   ParkingSystem(int big, int medium, int small)
       : m_big(big), m_medium(medium), m_small(small) {}
 
-  bool addCar(int carType) {
+  auto addCar(int carType) -> bool {
     if (carType == 1) {
       return m_big-- > 0;
-    } else if (carType == 2) {
+    }
+    if (carType == 2) {
       return m_medium-- > 0;
     } else {
       return m_small-- > 0;

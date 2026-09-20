@@ -1,4 +1,6 @@
-#include <bits/stdc++.h>
+#include <algorithm>
+#include <boost/range/algorithm/sort.hpp>
+#include <vector>
 
 using namespace std;
 
@@ -13,8 +15,12 @@ class Solution {
       return;
     }
     for (int i{idx}; i < nums.size(); i++) {
-      if (i > idx && nums[i] == nums[i - 1]) continue;
-      if (t - nums[i] < 0) break;
+      if (i > idx && nums[i] == nums[i - 1]) {
+        continue;
+      }
+      if (t - nums[i] < 0) {
+        break;
+      }
       subset.push_back(nums[i]);
       backtrack(i + 1, t - nums[i], nums, subset, res);
       subset.pop_back();
@@ -22,10 +28,10 @@ class Solution {
   }
 
  public:
-  vector<vector<int>> combinationSum2(vector<int>& nums, int t) {
-    sort(nums.begin(), nums.end());
+  auto combinationSum2(vector<int>& nums, int t) -> vector<vector<int>> {
+    boost::range::sort(nums);
     vector<vector<int>> res;
-    vector<int> subset;
+    vector<int> const subset;
     backtrack(0, t, nums, {}, res);
     return res;
   }

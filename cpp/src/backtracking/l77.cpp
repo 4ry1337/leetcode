@@ -1,4 +1,4 @@
-#include <bits/stdc++.h>
+#include <vector>
 
 using namespace std;
 
@@ -21,7 +21,7 @@ class Solution {
   }
 
  public:
-  vector<vector<int>> combine(int n, int k) {
+  auto combine(int n, int k) -> vector<vector<int>> {
     vector<vector<int>> res;
     vector<int> subset;
     search(n, k, subset, res, 0);
