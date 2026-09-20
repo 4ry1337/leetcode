@@ -12,37 +12,66 @@ class MyHashSet {
     int m_key;
     Node* m_left;
     Node* m_right;
-    Node(int key) : m_key(m_key), m_left(nullptr), m_right(nullptr) {}
+    Node(int m_key) : m_key(m_key), m_left(nullptr), m_right(nullptr) {}
   };
 
-  vector<Node*> buckets;
-
-  int hash(int key) { return key % size; }
-
-  const int m_size = 10000;
+  static const int m_size = 10000;
+  array<Node*, m_size> m_buckets{};
   int hash(int key) { return key % m_size; }
 
  public:
   MyHashSet() {}
 
   void add(int key) {
-    int p_key = hash(key);
-    Node* curr = m_root;
-    while (curr != nullptr) {
-      if (p_key == curr->m_key) {
-        return;
-      } else if (p_key > curr->m_key) {
-        curr = curr->m_left;
-      } else {
-        curr = curr->m_right;
-      }
+    if (contains(key)) return;
+    Node** slot = &m_buckets[hash(key)];
+    while (*slot != nullptr) {
+      Node* node = *slot;
+      slot = key > node->m_key ? &node->m_right : &node->m_left;
     }
-    curr = new Node(key);
+    *slot = new Node(key);
   }
 
-  void remove(int key) {}
+  void remove(int key) {
+    if (!contains(key)) return;
+    Node** slot = &m_buckets[hash(key)];
+    while ((*slot)->m_key != key) {
+      Node* node = *slot;
+      slot = key > node->m_key ? &node->m_right : &node->m_left;
+    }
+    if (!(*slot)->m_left) {
+      Node* temp = (*slot);
+      *slot = (*slot)->m_right;
+      delete temp;
+      return;
+    }
+    if (!(*slot)->m_right) {
+      Node* temp = *slot;
+      *slot = (*slot)->m_left;
+      delete temp;
+      return;
+    }
+    Node** min_slot = &(*slot)->m_right;
+    while ((*min_slot)->m_left) min_slot = &(*min_slot)->m_left;
+    Node* min_value = *min_slot;
+    (*slot)->m_key = min_value->m_key;
+    *min_slot = min_value->m_right;
+    delete min_value;
+  }
 
-  bool contains(int key) {}
+  bool contains(int key) {
+    Node* node = m_buckets[hash(key)];
+    while (node) {
+      if (node->m_key == key) {
+        return true;
+      } else if (node->m_key < key) {
+        node = node->m_right;
+      } else {
+        node = node->m_left;
+      }
+    }
+    return false;
+  }
 };
 
 /**
