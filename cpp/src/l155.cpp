@@ -1,16 +1,14 @@
-#include <algorithm>
-#include <stack>
-#include <utility>
+#include <bits/stdc++.h>
 
 using namespace std;
 
 /* link: https://leetcode.com/problems/min-stack/description/ */
 
 class MinStack {
- private:
+private:
   stack<pair<int, int>> m_data;
 
- public:
+public:
   MinStack() = default;
 
   void push(int val) {
@@ -19,9 +17,9 @@ class MinStack {
 
   void pop() { m_data.pop(); }
 
-  auto top() -> int { return m_data.top().first; }
+  int top() { return m_data.top().first; }
 
-  auto getMin() -> int { return m_data.top().second; }
+  int getMin() { return m_data.top().second; }
 };
 
 /**

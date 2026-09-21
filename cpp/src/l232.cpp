@@ -1,4 +1,4 @@
-#include <stack>
+#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -11,10 +11,10 @@ using namespace std;
  * */
 
 class MyQueue {
- private:
+private:
   stack<int> A, B;
 
- public:
+public:
   MyQueue() = default;
 
   void push(int x) {
@@ -25,7 +25,7 @@ class MyQueue {
     A.push(x);
   }
 
-  auto pop() -> int {
+  int pop() {
     while (!A.empty()) {
       B.push(A.top());
       A.pop();
@@ -35,7 +35,7 @@ class MyQueue {
     return val;
   }
 
-  auto peek() -> int {
+  int peek() {
     while (!A.empty()) {
       B.push(A.top());
       A.pop();
@@ -43,7 +43,7 @@ class MyQueue {
     return B.top();
   }
 
-  auto empty() -> bool { return A.empty() || B.empty(); }
+  bool empty() { return A.empty() || B.empty(); }
 };
 
 /**

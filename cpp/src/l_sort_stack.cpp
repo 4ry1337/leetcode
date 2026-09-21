@@ -1,11 +1,10 @@
-#include <stack>
-#include <utility>
+#include <bits/stdc++.h>
 
 using namespace std;
 
 /*  */
 
-static void sort_stack(stack<int>& s) {
+static void sort_stack(stack<int> &s) {
   stack<int> sorted;
   stack<int> helper;
   while (!s.empty()) {

@@ -1,15 +1,14 @@
-#include <stack>
-#include <string>
+#include <bits/stdc++.h>
 
 using namespace std;
 
 /* link: https://leetcode.com/problems/valid-parentheses */
 
 class Solution {
- public:
-  static auto isValid(const string& s) -> bool {
+public:
+  bool isValid(const string &s) {
     stack<char> st;
-    for (const auto& c : s) {
+    for (const auto &c : s) {
       if (!st.empty() &&
           ((st.top() == '{' && c == '}') || (st.top() == '[' && c == ']') ||
            (st.top() == '(' && c == ')'))) {

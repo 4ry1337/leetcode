@@ -6,10 +6,10 @@ using namespace std;
 
 struct ListNode {
   int val;
-  ListNode* next;
+  ListNode *next;
   ListNode() : val(0), next(nullptr) {}
   ListNode(int x) : val(x), next(nullptr) {}
-  ListNode(int x, ListNode* next) : val(x), next(next) {}
+  ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
 
 /* ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
@@ -32,8 +32,8 @@ struct ListNode {
 } */
 
 class Solution {
- public:
-  ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
+public:
+  ListNode *mergeTwoLists(ListNode *list1, ListNode *list2) {
     ListNode *dummy = new ListNode(0), *curr = dummy;
     while (list1 != nullptr && list2 != nullptr) {
       if (list1->val < list2->val) {
@@ -50,7 +50,7 @@ class Solution {
     else
       curr->next = list2;
 
-    ListNode* res = dummy->next;
+    ListNode *res = dummy->next;
     delete dummy;
     return res;
   }

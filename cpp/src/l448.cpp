@@ -1,7 +1,4 @@
-
-#include <cstdlib>
-#include <unordered_map>
-#include <vector>
+#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -23,7 +20,7 @@ using namespace std;
  * */
 
 class Solution {
- public:
+public:
   /* vector<int> findDisappearedNumbers(vector<int>& nums) {
     unordered_set<int> mp(nums.begin(), nums.end());
     vector<int> res;
@@ -34,7 +31,7 @@ class Solution {
     }
     return res;
   } */
-  static auto findDisappearedNumbers(vector<int>& nums) -> vector<int> {
+  vector<int> findDisappearedNumbers(vector<int> &nums) {
     for (int i{}; i < nums.size(); ++i) {
       int const temp = abs(nums[i]) - 1;
       if (nums[temp] > 0) {

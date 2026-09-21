@@ -1,6 +1,4 @@
-#include <algorithm>
-#include <string>
-#include <unordered_set>
+#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -20,8 +18,8 @@ using namespace std;
  */
 
 class Solution {
- public:
-  static auto lengthOfLongestSubstring(string s) -> int {
+public:
+  int lengthOfLongestSubstring(string s) {
     int res = 0;
     int l = 0;
     int r = 0;

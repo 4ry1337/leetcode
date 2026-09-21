@@ -1,26 +1,23 @@
-
-using namespace std;
-
 /* link: https://leetcode.com/problems/palindrome-linked-list/ */
 
 struct ListNode {
   int val;
-  ListNode* next;
+  ListNode *next;
   ListNode() : val(0), next(nullptr) {}
   explicit ListNode(int x) : val(x), next(nullptr) {}
-  ListNode(int x, ListNode* next) : val(x), next(next) {}
-} __attribute__((aligned(16)));
+  ListNode(int x, ListNode *next) : val(x), next(next) {}
+};
 
 class Solution {
- public:
-  static auto isPalindrome(ListNode* head) -> bool {
-    ListNode* prev = nullptr;
-    ListNode* left = head;
-    ListNode* right = head;
+public:
+  bool isPalindrome(ListNode *head) {
+    ListNode *prev = nullptr;
+    ListNode *left = head;
+    ListNode *right = head;
 
     while (right != nullptr && right->next != nullptr) {
       right = right->next->next;
-      ListNode* next = left->next;
+      ListNode *next = left->next;
       left->next = prev;
       prev = left;
       left = next;

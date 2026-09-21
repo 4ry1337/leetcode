@@ -42,15 +42,19 @@ using namespace std;
 } */
 // problems: swap, substr allocates space
 
-bool is_one_edit_distance(std::string& s, std::string& t) {
+bool is_one_edit_distance(std::string &s, std::string &t) {
   int m = s.size(), n = t.size();
-  if (abs(m - n) > 1) return false;
+  if (abs(m - n) > 1)
+    return false;
   int i = 0, j = 0, mis = 0;
   while (i < m && j < n) {
     if (s[i] != t[j]) {
-      if (++mis > 1) return false;
-      if (m >= n) ++i;
-      if (n >= m) ++j;
+      if (++mis > 1)
+        return false;
+      if (m >= n)
+        ++i;
+      if (n >= m)
+        ++j;
     } else {
       ++i;
       ++j;

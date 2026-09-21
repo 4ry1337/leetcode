@@ -1,5 +1,4 @@
-#include <utility>
-#include <vector>
+#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -10,8 +9,8 @@ using namespace std;
  * */
 
 class Solution {
- public:
-  static auto spiralOrder(vector<vector<int>>& matrix) -> vector<int> {
+public:
+  vector<int> spiralOrder(vector<vector<int>> &matrix) {
     vector<int> res;
     vector<pair<int, int>> directions = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
     vector<int> steps = {static_cast<int>(matrix[0].size()),

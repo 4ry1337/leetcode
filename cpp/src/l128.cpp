@@ -1,7 +1,4 @@
-#include <algorithm>
-#include <climits>
-#include <unordered_map>
-#include <vector>
+#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -52,7 +49,7 @@ using namespace std;
  * */
 
 class Solution {
- public:
+public:
   /* int longestConsecutive(vector<int>& nums) {
     if(nums.empty()) return 0;
     priority_queue<int> mp;
@@ -72,10 +69,10 @@ class Solution {
     }
     return max(m, res);
 } */
-  static auto longestConsecutive(vector<int>& nums) -> int {
+  int longestConsecutive(vector<int> &nums) {
     int res = INT_MIN;
     unordered_map<int, int> mp;
-    for (auto const& n : nums) {
+    for (auto const &n : nums) {
       if (mp[n] != 0) {
         continue;
       }

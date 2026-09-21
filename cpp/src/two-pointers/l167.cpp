@@ -1,14 +1,13 @@
-
+#include <bits/stdc++.h>
 
 using namespace std;
 
 /* link: https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/ */
 
 class Solution {
- public:
-  static auto twoSum(vector<int>& nums, int t) -> vector<int> {
-    int l = 0;
-    int r = nums.size() - 1;
+public:
+  vector<int> twoSum(vector<int> &nums, int t) {
+    int l = 0, r = nums.size() - 1;
     while (l < r) {
       int const val = nums[l] + nums[r];
       if (val == t) {

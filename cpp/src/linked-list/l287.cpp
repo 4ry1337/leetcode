@@ -1,4 +1,4 @@
-#include <vector>
+#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -19,8 +19,8 @@ using namespace std;
  * */
 
 class Solution {
- public:
-  static auto findDuplicate(vector<int>& nums) -> int {
+public:
+  int findDuplicate(vector<int> &nums) {
     int res = nums[0];
     for (int i{}; i < nums.size(); ++i) {
       int const next = nums[res];

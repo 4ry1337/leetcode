@@ -1,10 +1,11 @@
+#include <bits/stdc++.h>
 
 using namespace std;
 
 /* https://leetcode.com/problems/reverse-bits/ */
 
 class Solution {
- public:
+public:
   /* int reverseBits(int n) {
     int res = n;
     for (int i = 0; i < 16; i++) {
@@ -20,7 +21,7 @@ class Solution {
     }
     return res;
   } */
-  static auto reverseBits(int n) -> int {
+  int reverseBits(int n) {
     int res = 0;
     for (int i = 0; i < 32; i++) {
       int const bit = (n >> i) & 1;

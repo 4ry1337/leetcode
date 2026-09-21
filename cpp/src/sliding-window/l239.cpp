@@ -1,5 +1,4 @@
-#include <deque>
-#include <vector>
+#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -30,8 +29,8 @@ using namespace std;
  * */
 
 class Solution {
- public:
-  static auto maxSlidingWindow(vector<int>& n, int k) -> vector<int> {
+public:
+  vector<int> maxSlidingWindow(vector<int> &n, int k) {
     vector<int> res;
     int l = 0;
     int r = 0;

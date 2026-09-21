@@ -1,14 +1,11 @@
-#include <algorithm>
-#include <climits>
-#include <utility>
-#include <vector>
+#include <bits/stdc++.h>
 
 using namespace std;
 
 /* link: https://leetcode.com/problems/median-of-two-sorted-arrays/ */
 
 class Solution {
- public:
+public:
   /* double findMedianSortedArrays(vector<int>& A, vector<int>& B) {
     int total_size = A.size() + B.size();
     int median = (total_size + 1) / 2;
@@ -39,7 +36,7 @@ class Solution {
     return -1;
   } */
   // hard to follow
-  static auto findMedianSortedArrays(vector<int>& A, vector<int>& B) -> double {
+  double findMedianSortedArrays(vector<int> &A, vector<int> &B) {
     int const total = A.size() + B.size();
     int const half = (total + 1) / 2;
     if (A.size() > B.size()) {

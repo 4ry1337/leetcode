@@ -1,7 +1,4 @@
-#include <algorithm>
-#include <cstddef>
-#include <cstdlib>
-#include <vector>
+#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -11,8 +8,8 @@ using namespace std;
  * */
 
 class Solution {
- public:
-  static auto minTimeToVisitAllPoints(vector<vector<int>>& points) -> int {
+public:
+  int minTimeToVisitAllPoints(vector<vector<int>> &points) {
     int res = 0;
     for (size_t i{}; i < points.size() - 1; ++i) {
       res += max(abs(points[i + 1][0] - points[i][0]),

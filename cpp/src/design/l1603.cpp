@@ -1,15 +1,16 @@
+#include <bits/stdc++.h>
 
 /* https://leetcode.com/problems/design-parking-system/ */
 
 class ParkingSystem {
- private:
+private:
   int m_big, m_medium, m_small;
 
- public:
+public:
   ParkingSystem(int big, int medium, int small)
       : m_big(big), m_medium(medium), m_small(small) {}
 
-  auto addCar(int carType) -> bool {
+  bool addCar(int carType) {
     if (carType == 1) {
       return m_big-- > 0;
     }

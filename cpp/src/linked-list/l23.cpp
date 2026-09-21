@@ -1,4 +1,4 @@
-#include <vector>
+#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -12,17 +12,17 @@ using namespace std;
 
 struct ListNode {
   int val;
-  ListNode* next;
+  ListNode *next;
   ListNode() : val(0), next(nullptr) {}
   explicit ListNode(int x) : val(x), next(nullptr) {}
-  ListNode(int x, ListNode* next) : val(x), next(next) {}
-} __attribute__((aligned(16)));
+  ListNode(int x, ListNode *next) : val(x), next(next) {}
+};
 
 class Solution {
- public:
-  static auto merge(ListNode* l1, ListNode* l2) -> ListNode* {
-    ListNode* dummy = new ListNode(0);
-    ListNode* curr = dummy;
+public:
+  ListNode *merge(ListNode *l1, ListNode *l2) {
+    ListNode *dummy = new ListNode(0);
+    ListNode *curr = dummy;
     while (l1 != nullptr && l2 != nullptr) {
       if (l1->val < l2->val) {
         curr->next = l1;
@@ -38,12 +38,12 @@ class Solution {
     } else {
       curr->next = l2;
     }
-    ListNode* res = dummy->next;
+    ListNode *res = dummy->next;
     delete dummy;
     return res;
   }
 
-  auto mergeKLists(vector<ListNode*>& lists) -> ListNode* {
+  ListNode *mergeKLists(vector<ListNode *> &lists) {
     if (lists.empty()) {
       return nullptr;
     }

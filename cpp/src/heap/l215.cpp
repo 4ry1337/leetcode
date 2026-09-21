@@ -1,5 +1,4 @@
-#include <queue>
-#include <vector>
+#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -13,12 +12,12 @@ using namespace std;
  * */
 
 class Solution {
- public:
+public:
   /* int findKthLargest(vector<int>& nums, int k) {
     sort(nums.rbegin(), nums.rend());
     return nums[k - 1];
   } */
-  static auto findKthLargest(vector<int>& nums, int k) -> int {
+  int findKthLargest(vector<int> &nums, int k) {
     priority_queue<int> pq(nums.begin(), nums.end());
     while ((--k) != 0) {
       pq.pop();

@@ -14,21 +14,21 @@
 
 struct ListNode {
   int val;
-  ListNode* next;
+  ListNode *next;
   ListNode() : val(0), next(nullptr) {}
   explicit ListNode(int x) : val(x), next(nullptr) {}
-  ListNode(int x, ListNode* next) : val(x), next(next) {}
-} __attribute__((aligned(16)));
+  ListNode(int x, ListNode *next) : val(x), next(next) {}
+};
 
 class Solution {
- public:
-  static auto removeNthFromEnd(ListNode* head, int n) -> ListNode* {
+public:
+  ListNode *removeNthFromEnd(ListNode *head, int n) {
     if (head == nullptr) {
       return head;
     }
-    ListNode* dummy = new ListNode(0, head);
-    ListNode* slow = dummy;
-    ListNode* fast = dummy;
+    ListNode *dummy = new ListNode(0, head);
+    ListNode *slow = dummy;
+    ListNode *fast = dummy;
     while (fast != nullptr) {
       fast = fast->next;
       if (n < 0) {
@@ -37,11 +37,11 @@ class Solution {
       n--;
     }
     if (slow->next != nullptr) {
-      ListNode const* temp = slow->next;
+      ListNode const *temp = slow->next;
       slow->next = slow->next->next;
       delete temp;
     }
-    ListNode* res = dummy->next;
+    ListNode *res = dummy->next;
     delete dummy;
     return res;
   }

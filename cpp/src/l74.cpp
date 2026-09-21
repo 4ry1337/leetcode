@@ -5,8 +5,8 @@ using namespace std;
 /* link: https://leetcode.com/problems/search-a-2d-matrix/ */
 
 class Solution {
- public:
-  bool searchMatrix(vector<vector<int>>& m, int t) {
+public:
+  bool searchMatrix(vector<vector<int>> &m, int t) {
     int r = m.size();
     int c = m[0].size();
     int base = 0;
@@ -21,7 +21,8 @@ class Solution {
       }
       size -= half;
     }
-    if (m[base / c][base % c] == t) return true;
+    if (m[base / c][base % c] == t)
+      return true;
     return false;
   }
 };

@@ -1,5 +1,4 @@
-#include <string>
-#include <vector>
+#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -12,12 +11,12 @@ using namespace std;
  * */
 
 class Solution {
- public:
-  static auto longestCommonPrefix(vector<string>& strs) -> string {
+public:
+  string longestCommonPrefix(vector<string> &strs) {
     string res;
     for (int i{}; i < strs[0].size(); ++i) {
-      char const& c = strs[0][i];
-      for (auto& str : strs) {
+      char const &c = strs[0][i];
+      for (auto &str : strs) {
         if (i >= str.size() || str[i] != c) {
           return res;
         }

@@ -1,4 +1,5 @@
-#include <vector>
+#include <bits/stdc++.h>
+
 using namespace std;
 
 /* link: https://leetcode.com/problems/set-matrix-zeroes/
@@ -26,8 +27,8 @@ using namespace std;
  * */
 
 class Solution {
- public:
-  static void setZeroes(vector<vector<int>>& m) {
+public:
+  static void setZeroes(vector<vector<int>> &m) {
     int const r = m.size();
     int const c = m[0].size();
     bool row = false;

@@ -1,7 +1,4 @@
-#include <algorithm>
-#include <climits>
-#include <cstddef>
-#include <vector>
+#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -30,8 +27,8 @@ using namespace std;
  * */
 
 class Solution {
- public:
-  static auto maxProfit(vector<int>& p) -> int {
+public:
+  int maxProfit(vector<int> &p) {
     // int res = 0, l = 0, r = 0;
     // while (r < p.size()) {
     //   res = max(res, p[r] - p[l]);

@@ -1,5 +1,4 @@
-
-#include <vector>
+#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -30,8 +29,8 @@ using namespace std;
  * */
 
 class Solution {
- public:
-  static auto maxArea(vector<int>& h) -> int {
+public:
+  int maxArea(vector<int> &h) {
     int res = 0;
     int l = 0;
     int r = h.size() - 1;

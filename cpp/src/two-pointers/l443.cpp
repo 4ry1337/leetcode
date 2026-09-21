@@ -1,5 +1,4 @@
-#include <string>
-#include <vector>
+#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -30,8 +29,8 @@ using namespace std;
  * */
 
 class Solution {
- public:
-  static auto compress(vector<char>& c) -> int {
+public:
+  int compress(vector<char> &c) {
     int l{};
     int r{};
     while (r < c.size()) {
@@ -41,7 +40,7 @@ class Solution {
       }
       c[l++] = c[r];
       if (len > 1) {
-        for (auto const& ch : to_string(len)) {
+        for (auto const &ch : to_string(len)) {
           c[l++] = ch;
         }
       }

@@ -1,3 +1,4 @@
+#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -22,7 +23,7 @@ using namespace std;
  * */
 
 class Solution {
- public:
+public:
   /* int getSum(int a, int b) {
     int res = 0;
     int carry = 0;
@@ -34,7 +35,7 @@ class Solution {
     }
     return res;
   } */
-  static auto getSum(int a, int b) -> int {
+  int getSum(int a, int b) {
     while (b != 0) {
       int const carry = (a & b) << 1;
       a ^= b;

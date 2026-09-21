@@ -1,3 +1,4 @@
+#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -11,29 +12,29 @@ using namespace std;
 
 struct ListNode {
   int val;
-  ListNode* next;
+  ListNode *next;
   ListNode() : val(0), next(nullptr) {}
   explicit ListNode(int x) : val(x), next(nullptr) {}
-  ListNode(int x, ListNode* next) : val(x), next(next) {}
-} __attribute__((aligned(16)));
+  ListNode(int x, ListNode *next) : val(x), next(next) {}
+};
 
 class Solution {
- public:
-  static auto reverseKGroup(ListNode* head, int k) -> ListNode* {
+public:
+  ListNode *reverseKGroup(ListNode *head, int k) {
     if (k == 1) {
       return head;
     }
     int cnt = k;
-    ListNode* res = head;
-    ListNode* g = head;
-    ListNode* gp = g;
-    ListNode* gn = head;
+    ListNode *res = head;
+    ListNode *g = head;
+    ListNode *gp = g;
+    ListNode *gn = head;
     while (true) {
       if (cnt == 0) {
-        ListNode* prev = nullptr;
-        ListNode* curr = g;
+        ListNode *prev = nullptr;
+        ListNode *curr = g;
         while (curr != gn) {
-          ListNode* next = curr->next;
+          ListNode *next = curr->next;
           curr->next = prev;
           prev = curr;
           curr = next;

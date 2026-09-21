@@ -1,11 +1,11 @@
-#include <vector>
+#include <bits/stdc++.h>
 
 using namespace std;
 
 /* link: https://leetcode.com/problems/binary-search/ */
 class Solution {
- public:
-  static auto search(vector<int>& nums, int target) -> int {
+public:
+  int search(vector<int> &nums, int target) {
     int base = 0;
     int size = nums.size();
     while (size > 1) {

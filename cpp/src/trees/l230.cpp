@@ -1,4 +1,4 @@
-#include <stack>
+#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -6,19 +6,19 @@ using namespace std;
 
 struct TreeNode {
   int val;
-  TreeNode* left;
-  TreeNode* right;
+  TreeNode *left;
+  TreeNode *right;
   TreeNode() : val(0), left(nullptr), right(nullptr) {}
   explicit TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-  TreeNode(int x, TreeNode* left, TreeNode* right)
+  TreeNode(int x, TreeNode *left, TreeNode *right)
       : val(x), left(left), right(right) {}
-} __attribute__((packed)) __attribute__((aligned(32)));
+};
 
 class Solution {
- public:
-  static auto kthSmallest(TreeNode* root, int k) -> int {
-    stack<TreeNode*> st;
-    TreeNode* curr = root;
+public:
+  int kthSmallest(TreeNode *root, int k) {
+    stack<TreeNode *> st;
+    TreeNode *curr = root;
     while (!st.empty() || curr != nullptr) {
       while (curr != nullptr) {
         st.push(curr);

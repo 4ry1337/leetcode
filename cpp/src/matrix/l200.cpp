@@ -11,8 +11,8 @@ using namespace std;
  * */
 
 class Solution {
- public:
-  int numIslands(vector<vector<char>>& grid) {
+public:
+  int numIslands(vector<vector<char>> &grid) {
     int res = 0;
     size_t rows = grid.size(), cols = grid[0].size();
     queue<pair<int, int>> q;
@@ -25,7 +25,7 @@ class Solution {
           while (!q.empty()) {
             auto [r, c] = q.front();
             q.pop();
-            for (auto& dir : directions) {
+            for (auto &dir : directions) {
               auto row = r + dir.first, col = c + dir.second;
               if (row >= 0 && row < rows && col >= 0 && col < cols &&
                   grid[row][col] == '1') {

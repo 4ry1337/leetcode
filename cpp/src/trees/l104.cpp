@@ -1,6 +1,4 @@
-#include <algorithm>
-#include <deque>
-#include <utility>
+#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -12,21 +10,21 @@ using namespace std;
 
 struct TreeNode {
   int val;
-  TreeNode* left;
-  TreeNode* right;
+  TreeNode *left;
+  TreeNode *right;
   TreeNode() : val(0), left(nullptr), right(nullptr) {}
   explicit TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-  TreeNode(int x, TreeNode* left, TreeNode* right)
+  TreeNode(int x, TreeNode *left, TreeNode *right)
       : val(x), left(left), right(right) {}
-} __attribute__((packed)) __attribute__((aligned(32)));
+};
 
 class Solution {
- public:
-  static auto maxDepth(TreeNode* root) -> int {
+public:
+  int maxDepth(TreeNode *root) {
     int res = 0;
-    deque<pair<TreeNode*, int>> v{{root, 0}};
+    deque<pair<TreeNode *, int>> v{{root, 0}};
     while (!v.empty()) {
-      auto& [curr, level] = v.front();
+      auto &[curr, level] = v.front();
       res = max(res, level);
       if (curr->left != nullptr) {
         v.emplace_back(curr->left, level + 1);

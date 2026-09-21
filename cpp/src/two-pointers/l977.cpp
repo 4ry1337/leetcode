@@ -1,14 +1,12 @@
-#include <algorithm>
-#include <boost/range/algorithm/reverse.hpp>
-#include <vector>
+#include <bits/stdc++.h>
 
 using namespace std;
 
 /* https://leetcode.com/problems/squares-of-a-sorted-array/ */
 
 class Solution {
- public:
-  static auto sortedSquares(vector<int>& nums) -> vector<int> {
+public:
+  vector<int> sortedSquares(vector<int> &nums) {
     vector<int> res;
     int l = 0;
     int r = nums.size() - 1;
@@ -23,7 +21,7 @@ class Solution {
         r--;
       }
     }
-    boost::range::reverse(res);
+    reverse(res.begin(), res.end());
     return res;
   }
 };

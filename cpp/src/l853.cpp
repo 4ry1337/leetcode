@@ -1,10 +1,5 @@
-
-#include <algorithm>
-#include <boost/range/adaptor/reversed.hpp>
-#include <boost/range/algorithm/sort.hpp>
-#include <cstddef>
-#include <utility>
-#include <vector>
+#include <bits/stdc++.h>
+#include <functional>
 
 using namespace std;
 
@@ -22,15 +17,15 @@ using namespace std;
  * */
 
 class Solution {
- public:
-  static auto carFleet(int t, vector<int>& p, vector<int>& s) -> int {
+public:
+  int carFleet(int t, vector<int> &p, vector<int> &s) {
     vector<pair<int, int>> ps;
     for (size_t i{}; i < p.size(); ++i) {
       ps.emplace_back(p[i], s[i]);
     }
-    boost::range::sort(boost::adaptors::reverse(ps));
+    sort(ps.begin(), ps.end(), greater<pair<int, int>>());
     stack<double> st;
-    for (auto& [pos, sp] : ps) {
+    for (auto &[pos, sp] : ps) {
       double const time = static_cast<double>(t - pos) / sp;
       if (!st.empty() && st.top() >= time) {
         continue;

@@ -16,15 +16,15 @@ using namespace std;
  * if we find that number exist we return those two
  * */
 class Solution {
- public:
-  static vector<int> twoSum(vector<int>& nums, int target) {
-    unordered_map<int, int> ump;
+public:
+  static vector<int> twoSum(vector<int> &nums, int target) {
+    unordered_map<int, int> mp;
     for (int i{}; i < nums.size(); ++i) {
-      auto it = ump.find(nums[i]);
-      if (it != ump.end()) {
+      auto it = mp.find(nums[i]);
+      if (it != mp.end()) {
         return vector<int>({it->second, i});
       }
-      ump[target - nums[i]] = i;
+      mp[target - nums[i]] = i;
     }
     return vector<int>();
   }

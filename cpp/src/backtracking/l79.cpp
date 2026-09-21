@@ -1,16 +1,14 @@
-#include <string>
-#include <vector>
+#include <bits/stdc++.h>
 
 using namespace std;
 
 /* https://leetcode.com/problems/word-search */
 
 class Solution {
- private:
+private:
   int rows, cols;
 
-  auto dfs(vector<vector<char>>& board, string& word, int i, int j, int idx)
-      -> bool {
+  bool dfs(vector<vector<char>> &board, string &word, int i, int j, int idx) {
     if (idx == word.size()) {
       return true;
     }
@@ -27,8 +25,8 @@ class Solution {
     return res;
   }
 
- public:
-  auto exist(vector<vector<char>>& board, string word) -> bool {
+public:
+  bool exist(vector<vector<char>> &board, string word) {
     rows = board.size();
     cols = board[0].size();
 

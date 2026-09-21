@@ -1,6 +1,4 @@
-#include <functional>
-#include <queue>
-#include <vector>
+#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -61,11 +59,11 @@ using namespace std;
  * */
 
 class MedianFinder {
- private:
+private:
   priority_queue<int, vector<int>, less<>> lesser;
   priority_queue<int, vector<int>, greater<>> greater;
 
- public:
+public:
   MedianFinder() = default;
 
   void addNum(int num) {
@@ -84,7 +82,7 @@ class MedianFinder {
     }
   }
 
-  auto findMedian() -> double {
+  double findMedian() {
     if (lesser.size() == greater.size()) {
       return (lesser.top() + greater.top()) / 2.0;
     }

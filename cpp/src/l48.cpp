@@ -1,5 +1,4 @@
-#include <utility>
-#include <vector>
+#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -22,8 +21,8 @@ using namespace std;
  * */
 
 class Solution {
- public:
-  static void rotate(vector<vector<int>>& m) {
+public:
+  static void rotate(vector<vector<int>> &m) {
     int const l = m.size();
     for (int i{}; i < l; ++i) {
       for (int j{}; j < l - 1 - i; ++j) {

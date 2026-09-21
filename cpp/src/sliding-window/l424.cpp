@@ -14,7 +14,7 @@ using namespace std;
  */
 
 class Solution {
- public:
+public:
   int characterReplacement(string s, int k) {
     array<int, 26> win{};
     int res = 0, l = 0, r = 0;

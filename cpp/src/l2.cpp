@@ -4,17 +4,17 @@
 
 struct ListNode {
   int val;
-  ListNode* next;
+  ListNode *next;
   ListNode() : val(0), next(nullptr) {}
   explicit ListNode(int x) : val(x), next(nullptr) {}
-  ListNode(int x, ListNode* next) : val(x), next(next) {}
-} __attribute__((aligned(16)));
+  ListNode(int x, ListNode *next) : val(x), next(next) {}
+};
 
 class Solution {
- public:
-  static auto addTwoNumbers(ListNode* l1, ListNode* l2) -> ListNode* {
-    ListNode* dummy = new ListNode(0);
-    ListNode* curr = dummy;
+public:
+  ListNode *addTwoNumbers(ListNode *l1, ListNode *l2) {
+    ListNode *dummy = new ListNode(0);
+    ListNode *curr = dummy;
     int carry = 0;
     while (l1 != nullptr || l2 != nullptr || carry != 0) {
       int v1 = 0;
@@ -32,7 +32,7 @@ class Solution {
       carry /= 10;
       curr = curr->next;
     }
-    ListNode* res = dummy->next;
+    ListNode *res = dummy->next;
     delete dummy;
     return res;
   }

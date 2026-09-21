@@ -1,4 +1,4 @@
-#include <vector>
+#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -20,10 +20,10 @@ using namespace std;
  * */
 
 class Solution {
- public:
-  static auto missingNumber(vector<int>& nums) -> int {
+public:
+  int missingNumber(vector<int> &nums) {
     int sum = (nums.size() * (nums.size() + 1)) / 2;
-    for (auto const& i : nums) {
+    for (auto const &i : nums) {
       sum -= i;
     }
     return sum;

@@ -5,10 +5,10 @@ using namespace std;
 /* https://leetcode.com/problems/palindrome-partitioning/ */
 
 class Solution {
- private:
+private:
   vector<vector<string>> res;
 
-  void backtrack(string& s, int i, int j, vector<string>& temp) {
+  void backtrack(string &s, int i, int j, vector<string> &temp) {
     if (j >= s.size()) {
       if (i == j) {
         res.push_back(temp);
@@ -23,7 +23,7 @@ class Solution {
     backtrack(s, i, j + 1, temp);
   }
 
-  bool isPalindrome(string& word, int i, int j) {
+  bool isPalindrome(string &word, int i, int j) {
     while (i < j) {
       if (word[i] != word[j]) {
         return false;
@@ -34,7 +34,7 @@ class Solution {
     return true;
   }
 
- public:
+public:
   vector<vector<string>> partition(string s) {
     vector<string> temp;
     backtrack(s, 0, 0, temp);

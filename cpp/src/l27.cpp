@@ -1,13 +1,12 @@
-
-#include <vector>
+#include <bits/stdc++.h>
 
 using namespace std;
 
 /* link: https://leetcode.com/problems/group-anagrams/description/ */
 
 class Solution {
- public:
-  static auto removeElement(vector<int>& nums, int val) -> int {
+public:
+  int removeElement(vector<int> &nums, int val) {
     int index = 0;
     for (int i{}; i < nums.size(); ++i) {
       if (nums[i] != val) {

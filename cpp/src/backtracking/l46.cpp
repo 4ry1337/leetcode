@@ -1,7 +1,4 @@
-
-#include <boost/range/algorithm/permutation.hpp>
-#include <boost/range/algorithm/sort.hpp>
-#include <vector>
+#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -47,13 +44,13 @@ using namespace std;
  * space: O(n * n!)
  * */
 class Solution {
- public:
-  static auto permute(vector<int>& nums) -> vector<vector<int>> {
-    boost::range::sort(nums);
+public:
+  vector<vector<int>> permute(vector<int> &nums) {
+    sort(nums.begin(), nums.end());
     vector<vector<int>> res;
     do {
       res.push_back(nums);
-    } while (boost::range::next_permutation(nums));
+    } while (next_permutation(nums.begin(), nums.end()));
     return res;
   }
 };

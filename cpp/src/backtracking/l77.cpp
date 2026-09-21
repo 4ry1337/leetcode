@@ -1,12 +1,12 @@
-#include <vector>
+#include <bits/stdc++.h>
 
 using namespace std;
 
 /* https://leetcode.com/problems/combinations */
 
 class Solution {
- private:
-  void search(int n, int k, vector<int>& subset, vector<vector<int>>& res,
+private:
+  void search(int n, int k, vector<int> &subset, vector<vector<int>> &res,
               int idx) {
     if (idx > n) {
       if (subset.size() == k) {
@@ -20,8 +20,8 @@ class Solution {
     subset.pop_back();
   }
 
- public:
-  auto combine(int n, int k) -> vector<vector<int>> {
+public:
+  vector<vector<int>> combine(int n, int k) {
     vector<vector<int>> res;
     vector<int> subset;
     search(n, k, subset, res, 0);

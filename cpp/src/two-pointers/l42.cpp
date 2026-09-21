@@ -1,5 +1,4 @@
-#include <algorithm>
-#include <vector>
+#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -11,13 +10,11 @@ using namespace std;
  * */
 
 class Solution {
- public:
-  static auto trap(vector<int>& h) -> int {
+public:
+  int trap(vector<int> &h) {
     int res = 0;
-    int l = 0;
-    int r = h.size() - 1;
-    int lh = h[l];
-    int rh = h[r];
+    int l = 0, r = h.size() - 1;
+    int lh = h[l], rh = h[r];
     while (l < r) {
       if (lh < rh) {
         l++;

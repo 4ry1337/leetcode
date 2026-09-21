@@ -1,30 +1,26 @@
-#include <queue>
-#include <unordered_map>
-#include <unordered_set>
-#include <utility>
-#include <vector>
+#include <bits/stdc++.h>
 
 using namespace std;
 
 /* https://leetcode.com/problems/design-twitter */
 
 class Twitter {
- private:
+private:
   int counter = 0;
   unordered_map<int, vector<pair<int, int>>> m_tweets;
   unordered_map<int, unordered_set<int>> m_follows;
 
- public:
+public:
   Twitter() = default;
 
   void postTweet(int userId, int tweetId) {
     m_tweets[userId].emplace_back(counter++, tweetId);
   }
 
-  auto getNewsFeed(int userId) -> vector<int> {
+  vector<int> getNewsFeed(int userId) {
     priority_queue<pair<int, int>> feed;
-    for (const auto& followee : m_follows[userId]) {
-      for (auto& [counter, tweet] : m_tweets[followee]) {
+    for (const auto &followee : m_follows[userId]) {
+      for (auto &[counter, tweet] : m_tweets[followee]) {
         feed.emplace(counter, tweet);
         if (feed.size() > 10) {
           feed.pop();

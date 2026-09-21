@@ -1,7 +1,4 @@
-
-#include <string>
-#include <utility>
-#include <vector>
+#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -24,18 +21,18 @@ using namespace std;
  * */
 
 class TimeMap {
- private:
+private:
   unordered_map<string, vector<pair<int, string>>> m_data;
 
- public:
+public:
   TimeMap() = default;
 
-  void set(const string& key, const string& value, int timestamp) {
+  void set(const string &key, const string &value, int timestamp) {
     m_data[key].emplace_back(timestamp, value);
   }
 
-  auto get(const string& key, int timestamp) -> string {
-    auto& v = m_data[key];
+  string get(const string &key, int timestamp) {
+    auto &v = m_data[key];
     int base = 0;
     int size = m_data.size();
     while (size > 1) {

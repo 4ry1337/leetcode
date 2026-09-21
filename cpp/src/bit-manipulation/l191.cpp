@@ -24,7 +24,7 @@ using namespace std;
  * */
 
 class Solution {
- public:
+public:
   /* int hammingWeight(int n) {
     int res = 0;
     for (int i = 0; i < 32; i++) {

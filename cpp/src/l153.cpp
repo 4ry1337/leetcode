@@ -1,4 +1,4 @@
-#include <vector>
+#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -6,8 +6,8 @@ using namespace std;
  * link: https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/ */
 
 class Solution {
- public:
-  static auto findMin(vector<int>& n) -> int {
+public:
+  int findMin(vector<int> &n) {
     int base = 0;
     int size = n.size();
     while (size > 1) {

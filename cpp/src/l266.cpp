@@ -41,11 +41,11 @@ using namespace std;
  * */
 
 class Solution {
- public:
-  bool canPermutePalindrome(const string& s) {
+public:
+  bool canPermutePalindrome(const string &s) {
     std::array<int, 26> freq{};
-    for (char& c : s) {
-      freq[c - 'a']++;
+    for (const char &ch : s) {
+      freq[ch - 'a']++;
     }
     int odd{};
     for (auto i : freq) {

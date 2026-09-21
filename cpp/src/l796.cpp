@@ -7,7 +7,7 @@ using namespace std;
  * */
 
 class Solution {
- public:
+public:
   bool rotateString(string s, string goal) {
     goal += goal;
     return goal.find(s) != goal.npos;

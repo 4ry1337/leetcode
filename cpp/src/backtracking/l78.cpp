@@ -1,4 +1,4 @@
-#include <vector>
+#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -24,9 +24,9 @@ using namespace std;
 /* solution 2 - backtrack */
 
 class Solution {
- private:
-  void backtrack(int k, vector<int>& nums, vector<int>& subset,
-                 vector<vector<int>>& res) {
+private:
+  void backtrack(int k, vector<int> &nums, vector<int> &subset,
+                 vector<vector<int>> &res) {
     if (k == nums.size()) {
       res.push_back(subset);
       return;
@@ -37,8 +37,8 @@ class Solution {
     subset.pop_back();
   }
 
- public:
-  auto subsets(vector<int>& nums) -> vector<vector<int>> {
+public:
+  vector<vector<int>> subsets(vector<int> &nums) {
     vector<vector<int>> res;
     vector<int> subset;
     backtrack(0, nums, subset, res);

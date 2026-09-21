@@ -22,32 +22,32 @@ using namespace std;
  * */
 struct ListNode {
   int val;
-  ListNode* next;
+  ListNode *next;
   ListNode() : val(0), next(nullptr) {}
   ListNode(int x) : val(x), next(nullptr) {}
-  ListNode(int x, ListNode* next) : val(x), next(next) {}
+  ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
 
 class Solution {
- public:
-  ListNode* deleteDuplicatesUnsorted(ListNode* head) {
-    ListNode* dummy = new ListNode(0, head);
+public:
+  ListNode *deleteDuplicatesUnsorted(ListNode *head) {
+    ListNode *dummy = new ListNode(0, head);
     ListNode *prev = dummy, *curr = head;
     while (curr) {
       int v = curr->val;
 
       bool dup = false;
-      for (ListNode* r = curr->next; r; r = r->next) {
+      for (ListNode *r = curr->next; r; r = r->next) {
         if (v == r->val) {
           dup = true;
           break;
         }
       }
       if (dup) {
-        ListNode* scan = prev;
+        ListNode *scan = prev;
         while (scan->next) {
           if (scan->next->val == v) {
-            ListNode* scan_next = scan->next;
+            ListNode *scan_next = scan->next;
             scan->next = scan_next->next;
             delete scan_next;
           } else {

@@ -25,7 +25,7 @@ using namespace std;
  * */
 
 class Solution {
- public:
+public:
   int climbStairs(int n) {
     int pp = 1;
     int p = 1;

@@ -5,8 +5,8 @@ using namespace std;
 /* https://leetcode.com/problems/generate-parentheses */
 
 class Solution {
- private:
-  void backtrack(vector<string>& res, string& s, int n, int count) {
+private:
+  void backtrack(vector<string> &res, string &s, int n, int count) {
     if (s.size() == n * 2) {
       if (count == 0) {
         res.push_back(s);
@@ -25,7 +25,7 @@ class Solution {
     }
   }
 
- public:
+public:
   vector<string> generateParenthesis(int n) {
     vector<string> res;
     string s = "";

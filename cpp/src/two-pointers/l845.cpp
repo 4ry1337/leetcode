@@ -19,16 +19,18 @@ using namespace std;
 }; */
 
 class Solution {
- public:
-  int longestMountain(vector<int>& arr) {
+public:
+  int longestMountain(vector<int> &arr) {
     int res = 0;
     size_t l = 0;
     while (l < arr.size()) {
       size_t r = l;
       if (r < arr.size() - 1 && arr[r] < arr[r + 1]) {
-        while (r < arr.size() - 1 && arr[r] < arr[r + 1]) r++;
+        while (r < arr.size() - 1 && arr[r] < arr[r + 1])
+          r++;
         if (r < arr.size() - 1 && arr[r] > arr[r + 1]) {
-          while (r < arr.size() - 1 && arr[r] > arr[r + 1]) r++;
+          while (r < arr.size() - 1 && arr[r] > arr[r + 1])
+            r++;
           res = max((int)r - (int)l + 1, res);
         }
       }

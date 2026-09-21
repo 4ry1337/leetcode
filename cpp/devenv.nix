@@ -6,7 +6,9 @@
   ...
 }:
 {
-  languages.cplusplus.enable = true;
+  languages.cplusplus = {
+    enable = true;
+  };
 
   # https://devenv.sh/packages/
   packages = with pkgs; [

@@ -1,5 +1,4 @@
-#include <iostream>
-#include <vector>
+#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -8,8 +7,8 @@ using namespace std;
  * */
 
 class Solution {
- public:
-  static auto search(vector<int>& n, int t) -> int {
+public:
+  int search(vector<int> &n, int t) {
     int base = 0;
     int size = n.size();
     while (size > 1) {

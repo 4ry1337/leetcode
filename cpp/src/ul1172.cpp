@@ -1,11 +1,9 @@
-#include <functional>
-#include <queue>
-#include <vector>
+#include <bits/stdc++.h>
 
 using namespace std;
 
 class DinnerPlates {
- public:
+public:
   vector<int> stack;
   priority_queue<int, vector<int>, greater<>> pq;
   int m_capacity;
@@ -23,7 +21,7 @@ class DinnerPlates {
     stack.push_back(val);
   }
 
-  auto pop() -> int {
+  int pop() {
     if (stack.empty()) {
       return -1;
     }
@@ -36,7 +34,7 @@ class DinnerPlates {
     return temp;
   }
 
-  auto popAtStack(int index) -> int {
+  int popAtStack(int index) {
     int end_index = (index * m_capacity) + m_capacity - 1;
     if (end_index >= stack.size()) {
       return -1;

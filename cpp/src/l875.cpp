@@ -1,6 +1,4 @@
-#include <algorithm>
-#include <cmath>
-#include <vector>
+#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -10,8 +8,8 @@ using namespace std;
  * */
 
 class Solution {
- public:
-  static auto minEatingSpeed(vector<int>& p, int h) -> int {
+public:
+  int minEatingSpeed(vector<int> &p, int h) {
     int base = 1;
     int size = *max_element(p.begin(), p.end());
     while (size > 1) {

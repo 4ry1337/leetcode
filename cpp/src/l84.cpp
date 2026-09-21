@@ -1,7 +1,4 @@
-#include <algorithm>
-#include <stack>
-#include <utility>
-#include <vector>
+#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -10,14 +7,14 @@ using namespace std;
  * */
 
 class Solution {
- public:
-  static auto largestRectangleArea(vector<int>& h) -> int {
+public:
+  int largestRectangleArea(vector<int> &h) {
     int res = 0;
     stack<pair<int, int>> st;
     for (int i{}; i < h.size(); ++i) {
       int start = i;
       while (!st.empty() && st.top().second > h[i]) {
-        auto& [index, height] = st.top();
+        auto &[index, height] = st.top();
         res = max(res, height * (i - index));
         st.pop();
         start = index;
@@ -25,7 +22,7 @@ class Solution {
       st.emplace(start, h[i]);
     }
     while (!st.empty()) {
-      auto& [index, height] = st.top();
+      auto &[index, height] = st.top();
       res = max(res, height * (static_cast<int>(h.size()) - index));
       st.pop();
     }
